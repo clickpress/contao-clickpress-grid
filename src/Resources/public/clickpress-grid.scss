@@ -1,0 +1,111 @@
+// Media Queries
+// ---------
+$mq_small: 576px; // Small devices (landscape phones)
+$mq_medium: 768px; // Medium devices (tablets, 768px and up)
+$mq_large: 992px; // Large devices (desktops, 992px and up)
+$mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
+
+
+.cp_grid {
+  display: grid;
+  grid-gap: 1rem;
+}
+
+@media (min-width: $mq_small) {
+  .grid_tablet_100 {
+    grid-template-columns: 1fr;
+  }
+  .grid_mobile_50_50 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid_mobile_33_33_33 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid_mobile_75_25 {
+    grid-template-columns: 3fr 1fr;
+  }
+  .grid_mobile_25_75 {
+    grid-template-columns: 1fr 3fr;
+  }
+  .grid_mobile_66_33 {
+    grid-template-columns: 2fr 1fr;
+  }
+  .grid_mobile_33_66 {
+    grid-template-columns: 1fr 2fr;
+  }
+  .grid_mobile_50_25_25 {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .grid_mobile_40_30_30 {
+    grid-template-columns: 4fr 3fr 3fr;
+  }
+}
+
+@media (min-width: $mq_medium) {
+  .grid_tablet_100 {
+    grid-template-columns: 1fr;
+  }
+  .grid_tablet_50_50 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid_tablet_33_33_33 {
+    grid-template-columns: repeat(3, 1fr)
+  }
+  .grid_tablet_75_25 {
+    grid-template-columns: 3fr 1fr;
+  }
+  .grid_tablet_25_75 {
+    grid-template-columns: 1fr 3fr;
+  }
+  .grid_tablet_66_33 {
+    grid-template-columns: 2fr 1fr;
+  }
+  .grid_tablet_33_66 {
+    grid-template-columns: 1fr 2fr;
+  }
+  .grid_tablet_50_25_25 {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .grid_tablet_40_30_30 {
+    grid-template-columns: 4fr 3fr 3fr;
+  }
+}
+
+
+@media (min-width: $mq_large) {
+  .grid_desktop_100 {
+    grid-template-columns: 1fr;
+  }
+  .grid_desktop_50_50 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid_desktop_50_25_25 {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .grid_desktop_33_33_33 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid_desktop_75_25 {
+    grid-template-columns: 3fr 1fr;
+  }
+  .grid_desktop_25_75 {
+    grid-template-columns: 1fr 3fr;
+  }
+  .grid_desktop_66_33 {
+    grid-template-columns: 2fr 1fr;
+  }
+  .grid_desktop_33_66 {
+    grid-template-columns: 1fr 2fr;
+  }
+  .grid_desktop_50_25_25 {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .grid_desktop_40_30_30 {
+    grid-template-columns: 4fr 3fr 3fr;
+  }
+}
+
+@media (min-width: $mq_extra) {
+
+}
+

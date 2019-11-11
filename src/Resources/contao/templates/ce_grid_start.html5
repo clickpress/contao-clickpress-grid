@@ -1,0 +1,11 @@
+<?php
+$GLOBALS['TL_CSS'][] = 'bundles/contaoclickpressgrid/clickpress-grid.css';
+?>
+<section class="<?= $this->class ?> block"<?= $this->cssID ?>>
+<?php $this->block('headline'); ?>
+<?php if ($this->headline): ?>
+    <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
+<?php endif; ?>
+<?php $this->endblock(); ?>
+
+<div class="cp_grid <?= $this->class ?> <?= $this->gridClasses?> ce_grid_start block"<?= $this->cssID ?>>

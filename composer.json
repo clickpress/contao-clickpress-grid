@@ -1,0 +1,42 @@
+{
+    "name": "clickpress/contao-clickpress-grid",
+    "type": "contao-bundle",
+    "description": "Grid System for Contao4",
+    "license": "LGPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Stefan Schulz-Lauterbach",
+            "homepage": "https://github.com/stefansl"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "contao/core-bundle": "^4.4"
+    },
+    "conflict": {
+        "contao/core": "*",
+        "contao/manager-plugin": "<2.0 || >=3.0"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0",
+        "doctrine/doctrine-cache-bundle": "^1.3",
+        "friendsofphp/php-cs-fixer": "^2.12",
+        "php-http/guzzle6-adapter": "^1.1",
+        "php-http/message-factory": "^1.0.2",
+        "phpunit/phpunit": "^5.7.26",
+        "symfony/phpunit-bridge": "^3.2"
+    },
+    "extra": {
+        "contao-manager-plugin": "Clickpress\\ContaoClickpressGridBundle\\ContaoManager\\Plugin"
+    },
+    "autoload": {
+        "psr-4": {
+            "Clickpress\\ContaoClickpressGridBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Clickpress\\ContaoClickpressGridBundle\\Tests\\": "tests/"
+        }
+    }
+}
