@@ -8,4 +8,4 @@ $GLOBALS['TL_CSS'][] = 'bundles/contaoclickpressgrid/clickpress-grid.css';
 <?php endif; ?>
 <?php $this->endblock(); ?>
 
-<div class="cp_grid <?= $this->class ?> <?= $this->gridClasses?> ce_grid_start block"<?= $this->cssID ?>>
+<div class="<?= $this->gridClasses?> ce_grid_start block">

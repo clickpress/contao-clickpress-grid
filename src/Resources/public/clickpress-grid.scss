@@ -6,7 +6,7 @@ $mq_large: 992px; // Large devices (desktops, 992px and up)
 $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
 
 
-.cp_grid {
+[class*="grid_"] {
   display: grid;
   grid-gap: 1rem;
 }
