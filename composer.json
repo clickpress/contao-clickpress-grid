@@ -1,7 +1,7 @@
 {
     "name": "clickpress/contao-clickpress-grid",
     "type": "contao-bundle",
-    "description": "Grid System for Contao4",
+    "description": "Grid System for Contao4 based on CSS Grid",
     "license": "LGPL-3.0-or-later",
     "authors": [
         {
@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": "^7.1",
-        "contao/core-bundle": "^4.4"
+        "contao/core-bundle": "^4.8"
     },
     "conflict": {
         "contao/core": "*",
