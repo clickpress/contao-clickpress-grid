@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace StefanSl\ContaoClickpressJsBundle\Tests;
+namespace Clickpress\ContaoClickpressGridBundle\Tests;
 
+use Clickpress\ClickpressGridBundle\ContaoClickpressGridBundle;
 use PHPUnit\Framework\TestCase;
-use StefanSl\ContaoClickpressJsBundle\ContaoClickpressGridBundle;
 
 class ContaoClickpressJsBundleTest extends TestCase
 {
@@ -20,6 +20,6 @@ class ContaoClickpressJsBundleTest extends TestCase
     {
         $bundle = new ContaoClickpressGridBundle();
 
-        $this->assertInstanceOf('StefanSl\ContaoClickpressJsBundle\ContaoClickpressGridBundle', $bundle);
+        $this->assertInstanceOf('Clickpress\ContaoClickpressGridBundle\ContaoClickpressGridBundle', $bundle);
     }
 }

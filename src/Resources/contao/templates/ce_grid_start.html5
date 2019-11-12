@@ -1,6 +1,3 @@
-<?php
-$GLOBALS['TL_CSS'][] = 'bundles/contaoclickpressgrid/clickpress-grid.css';
-?>
 <section class="<?= $this->class ?> block"<?= $this->cssID ?>>
 <?php $this->block('headline'); ?>
 <?php if ($this->headline): ?>
@@ -8,4 +5,4 @@ $GLOBALS['TL_CSS'][] = 'bundles/contaoclickpressgrid/clickpress-grid.css';
 <?php endif; ?>
 <?php $this->endblock(); ?>
 
-<div class="<?= $this->gridClasses?> ce_grid_start block">
+<div class="<?= $this->gridClasses?> grid_start block">

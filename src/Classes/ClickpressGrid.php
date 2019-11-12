@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Clickpress\ContaoClickpressGridBundle;
+namespace Clickpress\ContaoClickpressGridBundle\Classes;
 
 class ClickpressGrid
 {

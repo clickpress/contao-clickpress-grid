@@ -11,6 +11,13 @@
 
 namespace Clickpress\ContaoClickpressGridBundle\Element;
 
+/**
+ * Grid start content element
+ * Taken with friendly permission from RockSolid Columns.
+ *
+ * @author Martin Auswöger <martin@madeyourday.net>
+ * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
+ */
 class GridStart extends \ContentElement
 {
     /**
@@ -29,7 +36,63 @@ class GridStart extends \ContentElement
             return parent::generate();
         }
 
-        return parent::generate();
+        $parentKey = ($this->arrData['ptable'] ?: 'tl_article') . '__' . $this->arrData['pid'];
+
+        $htmlPrefix = '';
+        if (!empty($GLOBALS['TL_CP_GRID'][$parentKey])) {
+            dump('sd', $GLOBALS['TL_CP_GRID']);
+            if ($GLOBALS['TL_CP_GRID'][$parentKey]['active']) {
+                ++$GLOBALS['TL_CP_GRID'][$parentKey]['count'];
+                $count = $GLOBALS['TL_CP_GRID'][$parentKey]['count'];
+
+                if ($count) {
+                    $classes = ['cp-column'];
+                    foreach ($GLOBALS['TL_CP_GRID'][$parentKey]['config'] as $name => $media) {
+                        $classes = array_merge($classes, $media[($count - 1) % \count($media)]);
+                        if ($count - 1 < \count($media)) {
+                            $classes[] = '-' . $name . '-first-row';
+                        }
+                    }
+
+                    $htmlPrefix .= '<div class="' . implode(' ', $classes) . '">';
+                }
+            }
+
+            $GLOBALS['TL_CP_GRID_STACK'][$parentKey][] = $GLOBALS['TL_CP_GRID'][$parentKey];
+        }
+
+        $GLOBALS['TL_CP_GRID'][$parentKey] = [
+            'active' => true,
+            'count' => 0,
+            'config' => static::getColumnsConfiguration($this->arrData),
+        ];
+        $this->arrData['gridClasses'] = implode(' ', $GLOBALS['TL_CP_GRID'][$parentKey]['config']);
+
+        return $htmlPrefix . parent::generate();
+    }
+
+    /**
+     * Generate the columns classes.
+     *
+     * @param array $data Data array
+     */
+    public static function getColumnsConfiguration(array $data): array
+    {
+        $config = [];
+        foreach (['desktop', 'tablet', 'mobile'] as $media) {
+            if (isset($data['cp_grid_' . $media])) {
+                $columns = preg_replace(
+                    '/grid/',
+                    'grid_' . $media,
+                    $data['cp_grid_' . $media]
+                );
+                $config[$media] = $columns;
+            } else {
+                $config[$media] = null;
+            }
+        }
+
+        return $config;
     }
 
     /**
@@ -37,10 +100,14 @@ class GridStart extends \ContentElement
      */
     public function compile()
     {
-        $class .= ($this->cp_grid_mobile) ? $this->cp_grid_mobile . ' ' : '';
-        $class .= ($this->cp_grid_tablet) ? $this->cp_grid_tablet . ' ' : '';
-        $class .= ($this->cp_grid_desktop) ? $this->cp_grid_desktop . ' ' : '';
-
-        $this->Template->gridClasses = $class;
+        if (TL_MODE === 'BE') {
+            $this->strTemplate = 'be_wildcard';
+            $this->Template = new \BackendTemplate($this->strTemplate);
+            $this->Template->title = $this->headline;
+        } else {
+            $this->Template = new \FrontendTemplate($this->strTemplate);
+            dump($this->arrData);
+            $this->Template->setData($this->arrData);
+        }
     }
 }

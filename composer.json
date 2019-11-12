@@ -23,16 +23,28 @@
         "friendsofphp/php-cs-fixer": "^2.12",
         "php-http/guzzle6-adapter": "^1.1",
         "php-http/message-factory": "^1.0.2",
-        "phpunit/phpunit": "^5.7.26",
-        "symfony/phpunit-bridge": "^3.2"
+        "phpunit/phpunit": "^7.5",
+        "symfony/phpunit-bridge": "^4.3"
     },
     "extra": {
-        "contao-manager-plugin": "Clickpress\\ContaoClickpressGridBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Clickpress\\ContaoGridBundle\\ContaoManager\\Plugin",
+        "symfony": {
+            "require": "^4.2"
+        }
     },
     "autoload": {
         "psr-4": {
             "Clickpress\\ContaoClickpressGridBundle\\": "src/"
-        }
+        },
+        "classmap": [
+            "src/Resources/contao/"
+        ],
+        "exclude-from-classmap": [
+            "src/Resources/contao/config/",
+            "src/Resources/contao/dca/",
+            "src/Resources/contao/languages/",
+            "src/Resources/contao/templates/"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
