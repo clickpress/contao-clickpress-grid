@@ -1,20 +1,21 @@
 <?php
 
 /*
- * This file is part of [package name].
+ * This file is part of Contao Clickpress Grid.
  *
- * (c) John Doe
+ * (c) Stefan Schulz-Lauterbach (https://clickpress.de)
  *
- * @license LGPL-3.0-or-later
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Clickpress\ContaoClickpressGridBundle\ContaoManager;
 
+use Clickpress\ContaoClickpressGridBundle\ContaoClickpressGridBundle;
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use Clickpress\ContaoClickpressGridBundle\ContaoClickpressGridBundle;
 
 class Plugin implements BundlePluginInterface
 {

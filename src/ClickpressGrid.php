@@ -1,12 +1,22 @@
 <?php
 
+/*
+ * This file is part of Contao Clickpress Grid.
+ *
+ * (c) Stefan Schulz-Lauterbach (https://clickpress.de)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Clickpress\ContaoClickpressGridBundle;
 
-class ClickpressGrid {
-
-    public function generateOptions($device) {
+class ClickpressGrid
+{
+    public function generateOptions($device)
+    {
         $prefix = 'grid_' . $device . '_';
-        $gridOptions = array(
+        $gridOptions = [
             $prefix . '100' => '1 Spalte',
             $prefix . '50_50' => '2 Spalten',
             $prefix . '33_33_33' => '3 Spalten',
@@ -16,7 +26,7 @@ class ClickpressGrid {
             $prefix . '33_66' => '2 Spalten - aufgeteilt in 33% 66%',
             $prefix . '50_25_25' => '3 Spalten - aufgeteilt in 50% 25% 25%',
             $prefix . '40_30_30' => '3 Spalten - aufgeteilt in 40% 30% 30%',
-        );
+        ];
 
         return $gridOptions;
     }
