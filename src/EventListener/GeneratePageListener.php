@@ -24,6 +24,6 @@ class GeneratePageListener implements ServiceAnnotationInterface
      */
     public function onGeneratePage(PageModel $pageModel, LayoutModel $layout, PageRegular $pageRegular): void
     {
-        dump($layout);
+        // ToDo: add Stylesheet in hook
     }
 }
