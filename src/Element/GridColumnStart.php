@@ -11,6 +11,9 @@
 
 namespace Clickpress\ContaoClickpressGridBundle\Element;
 
+use Psr\Log\LogLevel;
+use Contao\CoreBundle\Monolog\ContaoContext;
+
 /**
  * Column start content element
  * Taken with friendly permission from RockSolid Columns.
@@ -43,7 +46,16 @@ class GridColumnStart extends \ContentElement
             $GLOBALS['TL_CP_GRID'][$parentKey]['active'] = false;
             ++$GLOBALS['TL_CP_GRID'][$parentKey]['count'];
         } else {
-            trigger_error('Missing column wrapper start element before column start element ID ' . $this->id . '.', E_USER_WARNING);
+            \System::getContainer()
+                ->get('monolog.logger.contao')
+                ->log(
+                    LogLevel::WARNING,
+                    'Missing column wrapper start element before column start element ID ' . $this->id . '.',
+                        array(
+                            'contao' => new ContaoContext(__CLASS__.'::'.__FUNCTION__, TL_GENERAL
+                        )
+                    )
+                );
         }
 
         if (!\is_array($this->cssID)) {
