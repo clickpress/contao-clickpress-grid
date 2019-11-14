@@ -40,7 +40,6 @@ class GridStart extends \ContentElement
 
         $htmlPrefix = '';
         if (!empty($GLOBALS['TL_CP_GRID'][$parentKey])) {
-            dump('sd', $GLOBALS['TL_CP_GRID']);
             if ($GLOBALS['TL_CP_GRID'][$parentKey]['active']) {
                 ++$GLOBALS['TL_CP_GRID'][$parentKey]['count'];
                 $count = $GLOBALS['TL_CP_GRID'][$parentKey]['count'];
@@ -106,7 +105,6 @@ class GridStart extends \ContentElement
             $this->Template->title = $this->headline;
         } else {
             $this->Template = new \FrontendTemplate($this->strTemplate);
-            dump($this->arrData);
             $this->Template->setData($this->arrData);
         }
     }
