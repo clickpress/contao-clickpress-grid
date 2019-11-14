@@ -27,7 +27,7 @@
         "symfony/phpunit-bridge": "^4.3"
     },
     "extra": {
-        "contao-manager-plugin": "Clickpress\\ContaoGridBundle\\ContaoManager\\Plugin",
+        "contao-manager-plugin": "Clickpress\\ContaoClickpressGridBundle\\ContaoManager\\Plugin",
         "symfony": {
             "require": "^4.2"
         }
