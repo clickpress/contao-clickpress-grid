@@ -1,0 +1,3 @@
+services:
+    Clickpress\ContaoClickpressGridBundle\EventListener\ClickpressGridListener:
+        tags: ['terminal42_service_annotation']
