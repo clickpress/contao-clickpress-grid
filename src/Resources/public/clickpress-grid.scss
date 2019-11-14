@@ -1,3 +1,10 @@
+/**
+ * CLICKPRESS CSS-Grid
+ * @author: Stefan Schulz-Lauterbach
+ *
+ * thanks to Dinko Skopljak for co-working
+ */
+//
 // Media Queries
 // ---------
 $mq_small: 576px; // Small devices (landscape phones)
@@ -9,6 +16,9 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
 [class*="grid_"] {
   display: grid;
   grid-gap: 1rem;
+  > .block{
+    margin-bottom: 0;
+  }
 }
 
 @media (min-width: $mq_small) {
@@ -36,8 +46,20 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
   .grid_mobile_50_25_25 {
     grid-template-columns: 2fr 1fr 1fr;
   }
+  .grid_mobile_25_50_25 {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  .grid_mobile_25_25_50 {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
   .grid_mobile_40_30_30 {
     grid-template-columns: 4fr 3fr 3fr;
+  }
+  .grid_mobile_40_30_30 {
+    grid-template-columns: 3fr 4fr 3fr;
+  }
+  .grid_mobile_30_30_40 {
+    grid-template-columns: 3fr 3fr 4fr;
   }
 }
 
@@ -66,8 +88,20 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
   .grid_tablet_50_25_25 {
     grid-template-columns: 2fr 1fr 1fr;
   }
+  .grid_tablet_25_50_25 {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  .grid_tablet_25_25_50 {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
   .grid_tablet_40_30_30 {
     grid-template-columns: 4fr 3fr 3fr;
+  }
+  .grid_tablet_30_40_30 {
+    grid-template-columns: 3fr 4fr 3fr;
+  }
+  .grid_tablet_30_30_40 {
+    grid-template-columns: 3fr 3fr 4fr;
   }
 }
 
@@ -102,6 +136,39 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
   }
   .grid_desktop_40_30_30 {
     grid-template-columns: 4fr 3fr 3fr;
+  }
+  .grid_desktop_50_25_25 {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .grid_desktop_25_50_25 {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  .grid_desktop_25_25_50 {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  .grid_desktop_40_30_30 {
+    grid-template-columns: 4fr 3fr 3fr;
+  }
+  .grid_desktop_40_30_30 {
+    grid-template-columns: 3fr 4fr 3fr;
+  }
+  .grid_desktop_30_30_40 {
+    grid-template-columns: 3fr 3fr 4fr;
+  }
+  .grid_desktop_25_25_25_25 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .grid_desktop_40_20_20_20 {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+  .grid_desktop_20_40_20_20 {
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+  }
+  .grid_desktop_20_20_40_20 {
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+  }
+  .grid_desktop_20_20_20_40 {
+    grid-template-columns: 1fr 1fr 1fr 2fr;
   }
 }
 
