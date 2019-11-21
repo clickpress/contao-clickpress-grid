@@ -35,34 +35,6 @@ class GridColumnStart extends \ContentElement
      */
     public function generate()
     {
-        if (TL_MODE === 'BE') {
-            return parent::generate();
-        }
-
-        $classes = ['cp-column'];
-        $parentKey = ($this->arrData['ptable'] ?: 'tl_article') . '__' . $this->arrData['pid'];
-
-        if (isset($GLOBALS['TL_CP_GRID'][$parentKey]) && $GLOBALS['TL_CP_GRID'][$parentKey]['active']) {
-            $GLOBALS['TL_CP_GRID'][$parentKey]['active'] = false;
-            ++$GLOBALS['TL_CP_GRID'][$parentKey]['count'];
-        } else {
-            \System::getContainer()
-                ->get('monolog.logger.contao')
-                ->log(
-                    LogLevel::WARNING,
-                    'Missing column wrapper start element before column start element ID ' . $this->id . '.',
-                        array(
-                            'contao' => new ContaoContext(__CLASS__.'::'.__FUNCTION__, TL_GENERAL
-                        )
-                    )
-                );
-        }
-
-        if (!\is_array($this->cssID)) {
-            $this->cssID = ['', ''];
-        }
-        $this->arrData['cssID'][1] .= ' ' . implode(' ', $classes);
-
         return parent::generate();
     }
 

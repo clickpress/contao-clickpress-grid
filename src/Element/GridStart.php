@@ -38,28 +38,6 @@ class GridStart extends \ContentElement
 
         $parentKey = ($this->arrData['ptable'] ?: 'tl_article') . '__' . $this->arrData['pid'];
 
-        $htmlPrefix = '';
-        if (!empty($GLOBALS['TL_CP_GRID'][$parentKey])) {
-            if ($GLOBALS['TL_CP_GRID'][$parentKey]['active']) {
-                ++$GLOBALS['TL_CP_GRID'][$parentKey]['count'];
-                $count = $GLOBALS['TL_CP_GRID'][$parentKey]['count'];
-
-                if ($count) {
-                    $classes = ['cp-column'];
-                    foreach ($GLOBALS['TL_CP_GRID'][$parentKey]['config'] as $name => $media) {
-                        $classes = array_merge($classes, $media[($count - 1) % \count($media)]);
-                        if ($count - 1 < \count($media)) {
-                            $classes[] = '-' . $name . '-first-row';
-                        }
-                    }
-
-                    $htmlPrefix .= '<div class="' . implode(' ', $classes) . '">';
-                }
-            }
-
-            $GLOBALS['TL_CP_GRID_STACK'][$parentKey][] = $GLOBALS['TL_CP_GRID'][$parentKey];
-        }
-
         $GLOBALS['TL_CP_GRID'][$parentKey] = [
             'active' => true,
             'count' => 0,
