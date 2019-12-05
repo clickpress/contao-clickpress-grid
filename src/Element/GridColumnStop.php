@@ -39,8 +39,6 @@ class GridColumnStop extends \ContentElement
         $parentKey = ($this->arrData['ptable'] ?: 'tl_article') . '__' . $this->arrData['pid'];
         if (isset($GLOBALS['TL_CP_GRID'][$parentKey]) && !$GLOBALS['TL_CP_GRID'][$parentKey]['active']) {
             $GLOBALS['TL_CP_GRID'][$parentKey]['active'] = true;
-        } else {
-            trigger_error('Missing column start element before column stop element ID ' . $this->id . '.', E_USER_WARNING);
         }
 
         return parent::generate();
