@@ -22,7 +22,7 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
 }
 
 @media (min-width: $mq_small) {
-  .grid_tablet_100 {
+  .grid_mobile_100 {
     grid-template-columns: 1fr;
   }
   .grid_mobile_50_50 {
@@ -103,13 +103,13 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
   .grid_tablet_30_30_40 {
     grid-template-columns: 3fr 3fr 4fr;
   }
-  .grid_mobile_20_40_40 {
+  .grid_tablet_20_40_40 {
     grid-template-columns: 1fr 2fr 2fr;
   }
-  .grid_mobile_40_20_40 {
+  .grid_tablet_40_20_40 {
     grid-template-columns: 2fr 1fr 2fr;
   }
-  .grid_mobile_40_40_20 {
+  .grid_tablet_40_40_20 {
     grid-template-columns: 2fr 2fr 1fr;
   }
 }
@@ -164,13 +164,13 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
   .grid_desktop_30_30_40 {
     grid-template-columns: 3fr 3fr 4fr;
   }
-  .grid_mobile_20_40_40 {
+  .grid_desktop_20_40_40 {
     grid-template-columns: 1fr 2fr 2fr;
   }
-  .grid_mobile_40_20_40 {
+  .grid_desktop_40_20_40 {
     grid-template-columns: 2fr 1fr 2fr;
   }
-  .grid_mobile_40_40_20 {
+  .grid_desktop_40_40_20 {
     grid-template-columns: 2fr 2fr 1fr;
   }
   .grid_desktop_25_25_25_25 {
