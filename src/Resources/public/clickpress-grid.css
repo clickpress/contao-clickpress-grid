@@ -117,6 +117,18 @@
   .grid_tablet_30_30_40 {
     grid-template-columns: 3fr 3fr 4fr;
   }
+
+  .grid_mobile_20_40_40 {
+    grid-template-columns: 1fr 2fr 2fr;
+  }
+
+  .grid_mobile_40_20_40 {
+    grid-template-columns: 2fr 1fr 2fr;
+  }
+
+  .grid_mobile_40_40_20 {
+    grid-template-columns: 2fr 2fr 1fr;
+  }
 }
 @media (min-width: 992px) {
   .grid_desktop_100 {
@@ -181,6 +193,18 @@
 
   .grid_desktop_30_30_40 {
     grid-template-columns: 3fr 3fr 4fr;
+  }
+
+  .grid_mobile_20_40_40 {
+    grid-template-columns: 1fr 2fr 2fr;
+  }
+
+  .grid_mobile_40_20_40 {
+    grid-template-columns: 2fr 1fr 2fr;
+  }
+
+  .grid_mobile_40_40_20 {
+    grid-template-columns: 2fr 2fr 1fr;
   }
 
   .grid_desktop_25_25_25_25 {
