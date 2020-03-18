@@ -188,6 +188,9 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
   .grid_desktop_20_20_20_40 {
     grid-template-columns: 1fr 1fr 1fr 2fr;
   }
+  .grid_desktop_20_20_20_20_20 {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 @media (min-width: $mq_extra) {
