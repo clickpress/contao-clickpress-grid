@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS['TL_LANG']['CTE']['cp_grid'] = 'Grid Spaltenset';
+$GLOBALS['TL_LANG']['CTE']['cp_grid'] = 'Grid Columnset';
 $GLOBALS['TL_LANG']['CTE']['cp_grid_start'][0] = 'Gridset start';
 $GLOBALS['TL_LANG']['CTE']['cp_grid_start'][1] = '';
 $GLOBALS['TL_LANG']['CTE']['cp_grid_stop'][0] = 'Gridset stop';
