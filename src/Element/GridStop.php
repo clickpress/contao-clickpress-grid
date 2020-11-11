@@ -47,11 +47,6 @@ class GridStop extends \ContentElement
                 );
             }
             unset($GLOBALS['TL_CP_GRID'][$parentKey]);
-        } else {
-            trigger_error(
-                'Missing column wrapper start element before column wrapper stop element ID ' . $this->id . '.',
-                E_USER_WARNING
-            );
         }
 
         $htmlSuffix = '';
