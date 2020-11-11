@@ -31,6 +31,9 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
   .grid_mobile_33_33_33 {
     grid-template-columns: repeat(3, 1fr);
   }
+  .grid_mobile_25_25_25_25 {
+    grid-template-columns: repeat(4, 1fr);
+  }
   .grid_mobile_75_25 {
     grid-template-columns: 3fr 1fr;
   }
@@ -72,6 +75,9 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
   }
   .grid_tablet_33_33_33 {
     grid-template-columns: repeat(3, 1fr)
+  }
+  .grid_tablet_25_25_25_25 {
+    grid-template-columns: repeat(4, 1fr)
   }
   .grid_tablet_75_25 {
     grid-template-columns: 3fr 1fr;
