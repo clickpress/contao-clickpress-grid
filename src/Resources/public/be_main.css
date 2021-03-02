@@ -1,9 +1,9 @@
 
-.cp_grid_w33 {
+.cp_grid_w50 {
     float: left;
-    width: 29%;
+    width: 46%;
     height: 72px;
 }
-.cp_grid_w33 select {
+.cp_grid_w50 select {
     width: 90%;
 }
