@@ -56,7 +56,7 @@ class GridStart extends \ContentElement
     public static function getColumnsConfiguration(array $data): array
     {
         $config = [];
-        foreach (['desktop', 'tablet', 'mobile'] as $media) {
+        foreach (['largedesktop', 'desktop', 'tablet', 'mobile'] as $media) {
             if (isset($data['cp_grid_' . $media])) {
                 $columns = preg_replace(
                     '/grid/',

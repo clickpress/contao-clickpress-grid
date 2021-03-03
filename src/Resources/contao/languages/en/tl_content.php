@@ -1,4 +1,5 @@
 <?php
+$GLOBALS['TL_LANG']['tl_content']['cp_grid_largedesktop'] = ['Desktop XL', 'Set columns in large desktop view'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_desktop'] = ['Desktop', 'Set columns in desktop view'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_tablet'] = ['Tablet', 'Set columns in tablet view'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_mobile'] = ['Mobile', 'Set columns in mobile view'];

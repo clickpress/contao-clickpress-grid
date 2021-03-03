@@ -1,4 +1,5 @@
 <?php
+$GLOBALS['TL_LANG']['tl_content']['cp_grid_largedesktop'] = ['Desktop XL', 'Spaltenanzahl auf großen Desktops'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_desktop'] = ['Desktop', 'Spaltenanzahl in der Desktopansicht'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_tablet'] = ['Tablet', 'Spaltenanzahl in der Tabletansicht'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_mobile'] = ['Mobile', 'Spaltenanzahl in der Mobilansicht'];
