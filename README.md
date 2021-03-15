@@ -1,4 +1,4 @@
-[![Version](http://img.shields.io/packagist/v/clickpress/contao-clickpress-grid.svg?style=flat-square)](http://packagist.com/packages/clickpress/contao-clickpress-grid)  [![GitHub license](https://img.shields.io/badge/license-GPL-blue.svg?style=flat-square)](https://raw.githubusercontent.com/clickpress/contao-clickpress-grid/master/LICENSE)
+[![Version](http://img.shields.io/packagist/v/clickpress/contao-clickpress-grid.svg?style=flat-square)](https://packagist.org/packages/clickpress/contao-clickpress-grid)  [![GitHub license](https://img.shields.io/badge/license-GPL-blue.svg?style=flat-square)](https://raw.githubusercontent.com/clickpress/contao-clickpress-grid/master/LICENSE)
 # Grid CSS for Contao
 
 Add columns to your page content.
