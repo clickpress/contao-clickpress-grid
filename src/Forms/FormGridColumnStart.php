@@ -60,6 +60,6 @@ class FormGridColumnStart extends \Widget
      */
     public function generate()
     {
-        return "";
+        return;
     }
 }
