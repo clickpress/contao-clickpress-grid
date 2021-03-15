@@ -64,7 +64,7 @@ class FormGridStart extends \Widget
      */
     public function generate()
     {
-        return "";
+        return;
     }
 
 }
