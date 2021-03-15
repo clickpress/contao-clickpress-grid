@@ -11,6 +11,8 @@
 
 namespace Clickpress\ContaoClickpressGridBundle\Element;
 
+use Contao\System;
+
 /**
  * Grid stop content element
  * Taken with friendly permission from RockSolid Columns.
@@ -33,7 +35,9 @@ class GridStop extends \ContentElement
      */
     public function generate()
     {
-        if (TL_MODE === 'BE') {
+        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
+
+        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
             return parent::generate();
         }
 
@@ -66,7 +70,9 @@ class GridStop extends \ContentElement
      */
     public function compile()
     {
-        if (TL_MODE === 'BE') {
+        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
+
+        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
             $this->strTemplate = 'be_wildcard';
             $this->Template = new \BackendTemplate($this->strTemplate);
             $this->Template->title = $this->headline;
