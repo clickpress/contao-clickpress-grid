@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of Contao Clickpress Grid.
  *
@@ -11,6 +13,8 @@
 
 namespace Clickpress\ContaoClickpressGridBundle\Forms;
 
+use Contao\Widget;
+
 /**
  * Grid start content element
  * Taken with friendly permission from RockSolid Columns.
@@ -19,7 +23,7 @@ namespace Clickpress\ContaoClickpressGridBundle\Forms;
  * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
  * @author Jannik Nölke <mail@jaynoe.de>
  */
-class FormGridStart extends \Widget
+class FormGridStart extends Widget
 {
     /**
      * @var string Template
@@ -29,7 +33,7 @@ class FormGridStart extends \Widget
     /**
      * Do not validate.
      */
-    public function validate()
+    public function validate() :void
     {
     }
 
@@ -40,7 +44,7 @@ class FormGridStart extends \Widget
      *
      * @return string The template markup
      */
-    public function parse($arrAttributes = null)
+    public function parse($arrAttributes = null) :string
     {
         if (TL_MODE === 'BE') {
             $objTemplate = new \BackendTemplate('be_wildcard');
@@ -62,7 +66,8 @@ class FormGridStart extends \Widget
      *
      * @return string The widget markup
      */
-    public function generate()
+    public function generate(): string
     {
+        return '';
     }
 }
