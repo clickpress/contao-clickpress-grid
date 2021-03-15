@@ -11,9 +11,6 @@
 
 namespace Clickpress\ContaoClickpressGridBundle\Element;
 
-use Psr\Log\LogLevel;
-use Contao\CoreBundle\Monolog\ContaoContext;
-
 /**
  * Column start content element
  * Taken with friendly permission from RockSolid Columns.

@@ -43,7 +43,7 @@ class GridStop extends \ContentElement
             if (!$GLOBALS['TL_CP_GRID'][$parentKey]['active']) {
                 trigger_error(
                     'Missing column stop element before column wrapper stop element ID ' . $this->id . '.',
-                    E_USER_WARNING
+                    \E_USER_WARNING
                 );
             }
             unset($GLOBALS['TL_CP_GRID'][$parentKey]);
