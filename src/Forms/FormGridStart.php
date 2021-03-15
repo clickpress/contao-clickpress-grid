@@ -27,44 +27,42 @@ class FormGridStart extends \Widget
     protected $strTemplate = 'form_grid_start';
 
     /**
-     * Do not validate
+     * Do not validate.
      */
     public function validate()
     {
     }
 
     /**
-     * Parse the template file and return it as string
+     * Parse the template file and return it as string.
      *
      * @param array $arrAttributes An optional attributes array
      *
      * @return string The template markup
      */
-    public function parse($arrAttributes=null)
+    public function parse($arrAttributes = null)
     {
         if (TL_MODE === 'BE') {
             $objTemplate = new \BackendTemplate('be_wildcard');
+
             return $objTemplate->parse();
-        } else {
-            $gridClasses = [
+        }
+        $gridClasses = [
                 preg_replace('/grid/', 'grid_desktop', $this->form_cp_grid_desktop),
                 preg_replace('/grid/', 'grid_tablet', $this->form_cp_grid_tablet),
-                preg_replace('/grid/', 'grid_mobile', $this->form_cp_grid_mobile)
+                preg_replace('/grid/', 'grid_mobile', $this->form_cp_grid_mobile),
             ];
-            $arrAttributes['gridClasses'] = implode(' ', $gridClasses);
-        }
+        $arrAttributes['gridClasses'] = implode(' ', $gridClasses);
 
         return parent::parse($arrAttributes);
     }
 
     /**
-     * Generate the widget and return it as string
+     * Generate the widget and return it as string.
      *
      * @return string The widget markup
      */
     public function generate()
     {
-        return;
     }
-
 }

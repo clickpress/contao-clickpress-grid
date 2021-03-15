@@ -11,9 +11,6 @@
 
 namespace Clickpress\ContaoClickpressGridBundle\Forms;
 
-use Psr\Log\LogLevel;
-use Contao\CoreBundle\Monolog\ContaoContext;
-
 /**
  * Column start content element
  * Taken with friendly permission from RockSolid Columns.
@@ -30,23 +27,24 @@ class FormGridColumnStart extends \Widget
     protected $strTemplate = 'form_grid_column_start';
 
     /**
-     * Do not validate
+     * Do not validate.
      */
     public function validate()
     {
     }
 
     /**
-     * Parse the template file and return it as string
+     * Parse the template file and return it as string.
      *
      * @param array $arrAttributes An optional attributes array
      *
      * @return string The template markup
      */
-    public function parse($arrAttributes=null)
+    public function parse($arrAttributes = null)
     {
         if (TL_MODE === 'BE') {
             $objTemplate = new \BackendTemplate('be_wildcard');
+
             return $objTemplate->parse();
         }
 
@@ -54,12 +52,11 @@ class FormGridColumnStart extends \Widget
     }
 
     /**
-     * Generate the widget and return it as string
+     * Generate the widget and return it as string.
      *
      * @return string The widget markup
      */
     public function generate()
     {
-        return;
     }
 }

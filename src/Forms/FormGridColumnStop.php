@@ -7,7 +7,6 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
 namespace Clickpress\ContaoClickpressGridBundle\Forms;
@@ -28,23 +27,24 @@ class FormGridColumnStop extends \Widget
     protected $strTemplate = 'form_grid_column_stop';
 
     /**
-     * Do not validate
+     * Do not validate.
      */
     public function validate()
     {
     }
 
     /**
-     * Parse the template file and return it as string
+     * Parse the template file and return it as string.
      *
      * @param array $arrAttributes An optional attributes array
      *
      * @return string The template markup
      */
-    public function parse($arrAttributes=null)
+    public function parse($arrAttributes = null)
     {
         if (TL_MODE === 'BE') {
             $objTemplate = new \BackendTemplate('be_wildcard');
+
             return $objTemplate->parse();
         }
 
@@ -52,12 +52,11 @@ class FormGridColumnStop extends \Widget
     }
 
     /**
-     * Generate the widget and return it as string
+     * Generate the widget and return it as string.
      *
      * @return string The widget markup
      */
     public function generate()
     {
-        return;
     }
 }
