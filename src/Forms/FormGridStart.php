@@ -46,12 +46,12 @@ class FormGridStart extends \Widget
             $objTemplate = new \BackendTemplate('be_wildcard');
             return $objTemplate->parse();
         } else {
-            $gridClasses = array(
-                preg_replace("/grid/", "grid_desktop", $this->form_cp_grid_desktop),
-                preg_replace("/grid/", "grid_tablet", $this->form_cp_grid_tablet),
-                preg_replace("/grid/", "grid_mobile", $this->form_cp_grid_mobile)
-            );
-            $arrAttributes["gridClasses"] = implode(" ", $gridClasses);
+            $gridClasses = [
+                preg_replace('/grid/', 'grid_desktop', $this->form_cp_grid_desktop),
+                preg_replace('/grid/', 'grid_tablet', $this->form_cp_grid_tablet),
+                preg_replace('/grid/', 'grid_mobile', $this->form_cp_grid_mobile)
+            ];
+            $arrAttributes['gridClasses'] = implode(' ', $gridClasses);
         }
 
         return parent::parse($arrAttributes);
