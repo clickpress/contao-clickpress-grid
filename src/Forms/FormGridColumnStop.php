@@ -33,7 +33,7 @@ class FormGridColumnStop extends Widget
     /**
      * Do not validate.
      */
-    public function validate() :void
+    public function validate(): void
     {
     }
 
@@ -44,7 +44,7 @@ class FormGridColumnStop extends Widget
      *
      * @return string The template markup
      */
-    public function parse($arrAttributes = null) :string
+    public function parse($arrAttributes = null): string
     {
         if (TL_MODE === 'BE') {
             $objTemplate = new \BackendTemplate('be_wildcard');

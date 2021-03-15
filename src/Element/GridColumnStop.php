@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of Contao Clickpress Grid.
  *
@@ -11,6 +13,9 @@
 
 namespace Clickpress\ContaoClickpressGridBundle\Element;
 
+use Contao\BackendTemplate;
+use Contao\ContentElement;
+use Contao\FrontendTemplate;
 use Contao\System;
 
 /**
@@ -20,7 +25,7 @@ use Contao\System;
  * @author Martin Auswöger <martin@madeyourday.net>
  * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
  */
-class GridColumnStop extends \ContentElement
+class GridColumnStop extends ContentElement
 {
     /**
      * @var string Template
@@ -32,7 +37,7 @@ class GridColumnStop extends \ContentElement
      *
      * @return string Parsed element
      */
-    public function generate()
+    public function generate(): string
     {
         $request = System::getContainer()->get('request_stack')->getCurrentRequest();
 
@@ -51,16 +56,16 @@ class GridColumnStop extends \ContentElement
     /**
      * Compile the content element.
      */
-    public function compile()
+    public function compile(): void
     {
         $request = System::getContainer()->get('request_stack')->getCurrentRequest();
 
         if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
             $this->strTemplate = 'be_wildcard';
-            $this->Template = new \BackendTemplate($this->strTemplate);
+            $this->Template = new BackendTemplate($this->strTemplate);
             $this->Template->title = $this->headline;
         } else {
-            $this->Template = new \FrontendTemplate($this->strTemplate);
+            $this->Template = new FrontendTemplate($this->strTemplate);
             $this->Template->setData($this->arrData);
         }
     }
