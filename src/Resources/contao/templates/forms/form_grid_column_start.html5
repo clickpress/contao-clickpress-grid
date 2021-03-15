@@ -1,1 +1,1 @@
-<div class="ce_cp_column_start <?php echo $this->class ?>">
+<div class="ce_cp_column_start <?= $this->class ?>">
