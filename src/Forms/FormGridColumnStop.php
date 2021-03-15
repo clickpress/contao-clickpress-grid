@@ -58,6 +58,6 @@ class FormGridColumnStop extends \Widget
      */
     public function generate()
     {
-        return "";
+        return;
     }
 }
