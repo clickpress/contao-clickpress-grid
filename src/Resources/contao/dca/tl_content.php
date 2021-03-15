@@ -8,7 +8,11 @@
  * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
  */
 
-if (TL_MODE === 'BE') {
+use Contao\System;
+
+$request = System::getContainer()->get('request_stack')->getCurrentRequest();
+
+if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request))
     $GLOBALS['TL_CSS'][] = 'bundles/contaoclickpressgrid/be_main.css';
 }
 
