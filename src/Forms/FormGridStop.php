@@ -57,6 +57,6 @@ class FormGridStop extends \Widget
      */
     public function generate()
     {
-        return "";
+        return;
     }
 }
