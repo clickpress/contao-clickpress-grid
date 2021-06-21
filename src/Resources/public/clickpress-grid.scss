@@ -12,6 +12,18 @@ $mq_medium: 768px; // Medium devices (tablets, 768px and up)
 $mq_large: 992px; // Large devices (desktops, 992px and up)
 $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
 
+// Alignment utilities
+.justify-items-start {justify-items: start;}
+.justify-items-center {justify-items: center;}
+.justify-items-end {justify-items: end;}
+
+.content-start {align-content: start; }
+.content-center {align-content: center; }
+.content-end {align-content: end; }
+
+.items-start {align-items: start; }
+.items-center {align-items: center; }
+.items-end {align-items: end; }
 
 [class*="grid_"] {
   display: grid;

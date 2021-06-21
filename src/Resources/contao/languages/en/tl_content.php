@@ -1,4 +1,8 @@
 <?php
+
+$GLOBALS['TL_LANG']['tl_content']['cp_grid_valign'] = ['Vertical align', 'Position along a container\'s main axis'];
+$GLOBALS['TL_LANG']['tl_content']['cp_grid_halign'] = ['Horizontal align', 'Position along a container\'s cross axis'];
+
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_desktop'] = ['Desktop', 'Set columns in desktop view'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_tablet'] = ['Tablet', 'Set columns in tablet view'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_mobile'] = ['Mobile', 'Set columns in mobile view'];

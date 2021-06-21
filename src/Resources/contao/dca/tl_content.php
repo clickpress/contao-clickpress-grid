@@ -16,7 +16,7 @@ if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isB
     $GLOBALS['TL_CSS'][] = 'bundles/contaoclickpressgrid/be_main.css';
 }
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['cp_grid_start'] = '{type_legend},type,headline;{cp_grid_legend},cp_grid_mobile,cp_grid_tablet,cp_grid_desktop;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['cp_grid_start'] = '{type_legend},type,headline;{cp_grid_legend},cp_grid_mobile,cp_grid_tablet,cp_grid_desktop,cp_grid_valign,cp_grid_halign;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['cp_grid_stop'] = '{type_legend},type;{protected_legend:hide},protected;{expert_legend:hide},guests;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['cp_column_start'] = '{type_legend},type,headline;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['cp_column_stop'] = '{type_legend},type;{protected_legend:hide},protected;{expert_legend:hide},guests;{invisible_legend:hide},invisible,start,stop';
@@ -107,6 +107,38 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_mobile'] = array(
     'reference' => &$GLOBALS['TL_LANG']['tl_content']['cp_grid_options'],
     'eval' => array(
         'tl_class' => 'cp_grid_w33',
+    ),
+    'sql' => "varchar(255) NOT NULL default ''",
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_valign'] = array(
+    'inputType' => 'select',
+    'default' => false,
+    'options' => array(
+        'items-start' => 'top',
+        'items-center' => 'center',
+        'items-end' => 'bottom'
+    ),
+    'reference' => &$GLOBALS['TL_LANG']['tl_content']['cp_grid_valign_options'],
+    'eval' => array(
+        'tl_class' => 'w50 m12',
+        'includeBlankOption' => true
+    ),
+    'sql' => "varchar(255) NOT NULL default ''",
+);
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_halign'] = array(
+    'inputType' => 'select',
+    'default' => false,
+    'options' => array(
+        'justify-items-start'=>'left',
+        'justify-items-center'=>'center',
+        'justify-items-end'=>'right'
+    ),
+    'reference' => &$GLOBALS['TL_LANG']['tl_content']['cp_grid_halign_options'],
+    'eval' => array(
+        'tl_class' => 'w50 m12',
+        'includeBlankOption' => true
     ),
     'sql' => "varchar(255) NOT NULL default ''",
 );

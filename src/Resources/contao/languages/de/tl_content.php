@@ -1,9 +1,25 @@
 <?php
+
+$GLOBALS['TL_LANG']['tl_content']['cp_grid_valign'] = ['Vertikale Ausrichtung', 'Position der Elemente auf der Y-Achse'];
+$GLOBALS['TL_LANG']['tl_content']['cp_grid_halign'] = ['Horizontale Ausrichtung', 'Position der Elemente auf der X-Achse'];
+
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_desktop'] = ['Desktop', 'Spaltenanzahl in der Desktopansicht'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_tablet'] = ['Tablet', 'Spaltenanzahl in der Tabletansicht'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_mobile'] = ['Mobile', 'Spaltenanzahl in der Mobilansicht'];
 
 // References
+$GLOBALS['TL_LANG']['tl_content']['cp_grid_valign_options'] = [
+    'top' => 'oben',
+    'center' => 'zentriert',
+    'bottom' => 'unten'
+];
+
+$GLOBALS['TL_LANG']['tl_content']['cp_grid_halign_options'] = [
+    'left' => 'links',
+    'center' => 'zentriert',
+    'right' => 'rechts'
+];
+
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'] = [
     'grid_100' => '1 Spalte',
     'grid_50_50' => '2 Spalten',
