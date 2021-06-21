@@ -20,10 +20,10 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['cp_grid_start'] = '{type_legend},t
 $GLOBALS['TL_DCA']['tl_content']['palettes']['cp_grid_stop'] = '{type_legend},type;{protected_legend:hide},protected;{expert_legend:hide},guests;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['cp_column_start'] = '{type_legend},type,headline;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['cp_column_stop'] = '{type_legend},type;{protected_legend:hide},protected;{expert_legend:hide},guests;{invisible_legend:hide},invisible,start,stop';
-$GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_desktop'] = array(
+$GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_desktop'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['cp_grid_desktop'],
     'inputType' => 'select',
-    'options' => array(
+    'options' => [
         'grid_100',
         'grid_50_50',
         'grid_33_33_33',
@@ -46,19 +46,19 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_desktop'] = array(
         'grid_20_40_20_20',
         'grid_20_20_40_20',
         'grid_20_20_20_40',
-    ),
+    ],
     'reference' => &$GLOBALS['TL_LANG']['tl_content']['cp_grid_options'],
-    'eval' => array(
+    'eval' => [
         'tl_class' => 'cp_grid_w33',
-    ),
+    ],
     'sql' => "varchar(255) NOT NULL default ''",
-);
+];
 
 
-$GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_tablet'] = array(
+$GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_tablet'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['cp_grid_tablet'],
     'inputType' => 'select',
-    'options' => array(
+    'options' => [
         'grid_100',
         'grid_50_50',
         'grid_33_33_33',
@@ -76,19 +76,19 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_tablet'] = array(
         'grid_20_40_40',
         'grid_40_20_40',
         'grid_40_40_20',
-    ),
+    ],
     'reference' => &$GLOBALS['TL_LANG']['tl_content']['cp_grid_options'],
-    'eval' => array(
+    'eval' => [
         'tl_class' => 'cp_grid_w33',
-    ),
+    ],
     'sql' => "varchar(255) NOT NULL default ''",
-);
+];
 
 
-$GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_mobile'] = array(
+$GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_mobile'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['cp_grid_mobile'],
     'inputType' => 'select',
-    'options' => array(
+    'options' => [
         'grid_100',
         'grid_50_50',
         'grid_33_33_33',
@@ -103,42 +103,42 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_mobile'] = array(
         'grid_40_30_30',
         'grid_30_40_30',
         'grid_30_30_40',
-    ),
+    ],
     'reference' => &$GLOBALS['TL_LANG']['tl_content']['cp_grid_options'],
-    'eval' => array(
+    'eval' => [
         'tl_class' => 'cp_grid_w33',
-    ),
+    ],
     'sql' => "varchar(255) NOT NULL default ''",
-);
+];
 
-$GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_valign'] = array(
+$GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_valign'] = [
     'inputType' => 'select',
     'default' => false,
-    'options' => array(
+    'options' => [
         'items-start' => 'top',
         'items-center' => 'center',
         'items-end' => 'bottom'
-    ),
+    ],
     'reference' => &$GLOBALS['TL_LANG']['tl_content']['cp_grid_valign_options'],
-    'eval' => array(
+    'eval' => [
         'tl_class' => 'w50 m12',
         'includeBlankOption' => true
-    ),
+    ],
     'sql' => "varchar(255) NOT NULL default ''",
-);
+];
 
-$GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_halign'] = array(
+$GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_halign'] = [
     'inputType' => 'select',
     'default' => false,
-    'options' => array(
+    'options' => [
         'justify-items-start'=>'left',
         'justify-items-center'=>'center',
         'justify-items-end'=>'right'
-    ),
+    ],
     'reference' => &$GLOBALS['TL_LANG']['tl_content']['cp_grid_halign_options'],
-    'eval' => array(
+    'eval' => [
         'tl_class' => 'w50 m12',
         'includeBlankOption' => true
-    ),
+    ],
     'sql' => "varchar(255) NOT NULL default ''",
-);
+];
