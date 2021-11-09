@@ -19,6 +19,12 @@ or use the Contao Manager.
 
 If you need two content elements in a column, wrap them between the elements "Column start" and "Column end".
 
+## Customized CSS
+If you want to customize your grid CSS follow these steps:
+1. Disable "Load Clickpress Grid CSS" in your page layout settings.
+2. Copy and edit the grid CSS (https://github.com/clickpress/contao-clickpress-grid/blob/main/src/Resources/public/clickpress-grid.scss)
+3. Add your new grid CSS to the page layout as "external CSS"
+
 ## Inside
 This is the result of a 40% 30% 30% setting on desktop. So, three columns will be displayed in a row. The fourth column will be placed in a new row, automatically.
 ```html
