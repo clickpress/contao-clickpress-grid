@@ -17,6 +17,7 @@ use Contao\BackendTemplate;
 use Contao\ContentElement;
 use Contao\FrontendTemplate;
 use Contao\System;
+use const E_USER_WARNING;
 
 /**
  * Grid stop content element
@@ -52,7 +53,7 @@ class GridStop extends ContentElement
             if (!$GLOBALS['TL_CP_GRID'][$parentKey]['active']) {
                 trigger_error(
                     'Missing column stop element before column wrapper stop element ID ' . $this->id . '.',
-                    \E_USER_WARNING
+                    E_USER_WARNING
                 );
             }
             unset($GLOBALS['TL_CP_GRID'][$parentKey]);

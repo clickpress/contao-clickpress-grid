@@ -19,6 +19,7 @@ use Contao\DataContainer;
 use Contao\LayoutModel;
 use Contao\PageModel;
 use Contao\PageRegular;
+use Database;
 use Terminal42\ServiceAnnotationBundle\ServiceAnnotationInterface;
 
 /**
@@ -60,7 +61,7 @@ class ClickpressGridListener implements ServiceAnnotationInterface
 
         if ('cp_grid_start' === $activeRecord->type || 'cp_column_start' === $activeRecord->type) {
             // Find the next columns or column element
-            $nextElement = \Database::getInstance()
+            $nextElement = Database::getInstance()
                 ->prepare('
 					SELECT type
 					FROM tl_content
@@ -107,7 +108,7 @@ class ClickpressGridListener implements ServiceAnnotationInterface
                 $set['stop'] = $activeRecord->stop;
                 $set['tstamp'] = time();
 
-                \Database::getInstance()
+                Database::getInstance()
                     ->prepare('INSERT INTO tl_content %s')
                     ->set($set)
                     ->execute();

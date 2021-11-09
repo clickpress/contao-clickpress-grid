@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Clickpress\ContaoClickpressGridBundle\Forms;
 
+use BackendTemplate;
+use Contao\System;
 use Contao\Widget;
 
 /**
@@ -46,8 +48,10 @@ class FormGridStop extends Widget
      */
     public function parse($arrAttributes = null): string
     {
-        if (TL_MODE === 'BE') {
-            $objTemplate = new \BackendTemplate('be_wildcard');
+        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
+
+        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
+            $objTemplate = new BackendTemplate('be_wildcard');
 
             return $objTemplate->parse();
         }

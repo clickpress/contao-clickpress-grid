@@ -55,15 +55,15 @@ class GridStart extends ContentElement
         $this->arrData['gridClasses'] = implode(' ', $GLOBALS['TL_CP_GRID'][$parentKey]['config']);
 
         if ($this->cp_grid_valign) {
-            $this->arrData['gridClasses'] = $this->arrData['gridClasses'] . ' ' . $this->cp_grid_valign;
+            $this->arrData['gridClasses'] .= ' ' . $this->cp_grid_valign;
         }
 
         if ($this->cp_grid_halign) {
-            $this->arrData['gridClasses'] = $this->arrData['gridClasses'] . ' ' . $this->cp_grid_halign;
+            $this->arrData['gridClasses'] .= ' ' . $this->cp_grid_halign;
         }
 
 
-        return $htmlPrefix . parent::generate();
+        return parent::generate();
     }
 
     /**
@@ -76,11 +76,7 @@ class GridStart extends ContentElement
         $config = [];
         foreach (['desktop', 'tablet', 'mobile'] as $media) {
             if (isset($data['cp_grid_' . $media])) {
-                $columns = preg_replace(
-                    '/grid/',
-                    'grid_' . $media,
-                    $data['cp_grid_' . $media]
-                );
+                $columns = str_replace("grid", 'grid_' . $media, $data['cp_grid_' . $media]);
                 $config[$media] = $columns;
             } else {
                 $config[$media] = null;
