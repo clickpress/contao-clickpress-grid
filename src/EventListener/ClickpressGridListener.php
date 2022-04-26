@@ -16,6 +16,7 @@ namespace Clickpress\ContaoClickpressGridBundle\EventListener;
 use Contao\CoreBundle\ServiceAnnotation\Callback;
 use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Contao\DataContainer;
+use Contao\Encryption;
 use Contao\LayoutModel;
 use Contao\PageModel;
 use Contao\PageRegular;
@@ -93,9 +94,6 @@ class ClickpressGridListener implements ServiceAnnotationInterface
                 foreach ($GLOBALS['TL_DCA']['tl_content']['fields'] as $field => $config) {
                     if (\array_key_exists('default', $config)) {
                         $set[$field] = \is_array($config['default']) ? serialize($config['default']) : $config['default'];
-                        if ($GLOBALS['TL_DCA']['tl_content']['fields'][$field]['eval']['encrypt']) {
-                            $set[$field] = \Encryption::encrypt($set[$field]);
-                        }
                     }
                 }
 
