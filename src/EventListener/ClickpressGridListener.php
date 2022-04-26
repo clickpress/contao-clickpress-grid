@@ -16,7 +16,6 @@ namespace Clickpress\ContaoClickpressGridBundle\EventListener;
 use Contao\CoreBundle\ServiceAnnotation\Callback;
 use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Contao\DataContainer;
-use Contao\Encryption;
 use Contao\LayoutModel;
 use Contao\PageModel;
 use Contao\PageRegular;
