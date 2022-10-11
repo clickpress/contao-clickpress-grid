@@ -15,11 +15,11 @@ namespace Clickpress\ContaoClickpressGridBundle\EventListener;
 
 use Contao\CoreBundle\ServiceAnnotation\Callback;
 use Contao\CoreBundle\ServiceAnnotation\Hook;
+use Contao\Database;
 use Contao\DataContainer;
 use Contao\LayoutModel;
 use Contao\PageModel;
 use Contao\PageRegular;
-use Database;
 use Terminal42\ServiceAnnotationBundle\ServiceAnnotationInterface;
 
 /**
