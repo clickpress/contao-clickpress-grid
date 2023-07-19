@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Clickpress\ContaoClickpressGridBundle\Forms;
 
-use BackendTemplate;
+use Contao\BackendTemplate;
 use Contao\System;
 use Contao\Widget;
 
