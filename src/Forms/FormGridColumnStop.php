@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Clickpress\ContaoClickpressGridBundle\Forms;
 
+use Contao\BackendTemplate;
 use Contao\System;
 use Contao\Widget;
 
@@ -50,7 +51,7 @@ class FormGridColumnStop extends Widget
         $request = System::getContainer()->get('request_stack')->getCurrentRequest();
 
         if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
-            $objTemplate = new \BackendTemplate('be_wildcard');
+            $objTemplate = new BackendTemplate('be_wildcard');
 
             return $objTemplate->parse();
         }
