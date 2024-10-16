@@ -63,7 +63,7 @@ class ClickpressGridListener
 						AND (ptable = ? OR ptable = ?)
 						AND type IN (\'cp_column_start\', \'cp_column_stop\', \'cp_grid_start\', \'cp_grid_stop\')
 						AND sorting > ?
-					ORDER BY sorting ASC
+					ORDER BY sorting
 					LIMIT 1
 				')
                 ->execute(
