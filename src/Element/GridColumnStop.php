@@ -16,8 +16,10 @@ namespace Clickpress\ContaoClickpressGridBundle\Element;
 use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
+use Contao\CoreBundle\Routing\ScopeMatcher;
 use Contao\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -28,11 +30,26 @@ use Symfony\Component\HttpFoundation\Response;
  * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
  */
 
-#[AsContentElement('cp_column_stop', 'cp_grid', template: 'ce_grid_column_stop')]
+#[AsContentElement(type: 'cp_column_stop', category: 'cp_grid', template: 'ce_grid_column_stop')]
 class GridColumnStop extends AbstractContentElementController
 {
+    public function __construct(
+        readonly RequestStack $requestStack,
+        readonly ScopeMatcher $scopeMatcher,
+    ) {
+    }
+
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
+        if ($this->scopeMatcher->isBackendRequest()) {
+            return new Response('');
+        }
+
+        $parentKey = ($model->ptable ?: 'tl_article') . '__' . $model->pid;
+        if (isset($GLOBALS['TL_CP_GRID'][$parentKey]) && !$GLOBALS['TL_CP_GRID'][$parentKey]['active']) {
+            $GLOBALS['TL_CP_GRID'][$parentKey]['active'] = true;
+        }
+
         return $template->getResponse();
     }
 }

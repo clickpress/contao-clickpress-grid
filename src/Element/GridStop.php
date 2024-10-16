@@ -16,8 +16,10 @@ namespace Clickpress\ContaoClickpressGridBundle\Element;
 use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
+use Contao\CoreBundle\Routing\ScopeMatcher;
 use Contao\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 
 use const E_USER_WARNING;
@@ -33,8 +35,17 @@ use const E_USER_WARNING;
 #[AsContentElement(type: 'cp_grid_stop', category: 'cp_grid', template: 'ce_grid_stop')]
 class GridStop extends AbstractContentElementController
 {
+    public function __construct(
+        readonly RequestStack $requestStack,
+        readonly ScopeMatcher $scopeMatcher,
+    ) {
+    }
+
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
+        if ($this->scopeMatcher->isBackendRequest()) {
+            return new Response('');
+        }
 
         $parentKey = ($model->ptable ?: 'tl_article') . '__' . $model->pid;
 
