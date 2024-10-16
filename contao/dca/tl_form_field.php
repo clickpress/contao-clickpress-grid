@@ -8,14 +8,6 @@
  * @author Jannik Nölke <mail@jaynoe.de>
  */
 
-use Contao\System;
-
-$request = System::getContainer()->get('request_stack')->getCurrentRequest();
-
-if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
-    $GLOBALS['TL_CSS'][] = 'bundles/contaoclickpressgrid/be_main.css';
-}
-
 $GLOBALS['TL_DCA']['tl_form_field']['palettes']['cp_grid_start'] = '{type_legend},type;{form_cp_grid_legend},form_cp_grid_mobile,form_cp_grid_tablet,form_cp_grid_desktop;{expert_legend:hide},class;{invisible_legend:hide},invisible';
 $GLOBALS['TL_DCA']['tl_form_field']['palettes']['cp_grid_stop'] = '{type_legend},type;{expert_legend:hide},class;{invisible_legend:hide},invisible';
 $GLOBALS['TL_DCA']['tl_form_field']['palettes']['cp_column_start'] = '{type_legend},type,headline;{expert_legend:hide},class;{invisible_legend:hide},invisible';
@@ -49,7 +41,7 @@ $GLOBALS['TL_DCA']['tl_form_field']['fields']['form_cp_grid_desktop'] = array(
     ),
     'reference' => &$GLOBALS['TL_LANG']['tl_form_field']['form_cp_grid_options'],
     'eval' => array(
-        'tl_class' => 'cp_grid_w33',
+        'tl_class' => 'w33',
     ),
     'sql' => "varchar(255) NOT NULL default ''",
 );
@@ -79,7 +71,7 @@ $GLOBALS['TL_DCA']['tl_form_field']['fields']['form_cp_grid_tablet'] = array(
     ),
     'reference' => &$GLOBALS['TL_LANG']['tl_form_field']['form_cp_grid_options'],
     'eval' => array(
-        'tl_class' => 'cp_grid_w33',
+        'tl_class' => 'w33',
     ),
     'sql' => "varchar(255) NOT NULL default ''",
 );
@@ -106,7 +98,7 @@ $GLOBALS['TL_DCA']['tl_form_field']['fields']['form_cp_grid_mobile'] = array(
     ),
     'reference' => &$GLOBALS['TL_LANG']['tl_form_field']['form_cp_grid_options'],
     'eval' => array(
-        'tl_class' => 'cp_grid_w33',
+        'tl_class' => 'w33',
     ),
     'sql' => "varchar(255) NOT NULL default ''",
 );
