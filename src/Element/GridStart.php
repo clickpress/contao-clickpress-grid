@@ -13,10 +13,12 @@ declare(strict_types=1);
 
 namespace Clickpress\ContaoClickpressGridBundle\Element;
 
-use Contao\BackendTemplate;
-use Contao\ContentElement;
-use Contao\FrontendTemplate;
-use Contao\System;
+use Contao\ContentModel;
+use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
+use Contao\Template;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Grid start content element
@@ -25,45 +27,33 @@ use Contao\System;
  * @author Martin Auswöger <martin@madeyourday.net>
  * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
  */
-class GridStart extends ContentElement
+
+#[AsContentElement(type: 'cp_grid_start', category: 'cp_grid', template: 'ce_grid_start')]
+class GridStart extends AbstractContentElementController
 {
-    /**
-     * @var string Template
-     */
-    protected $strTemplate = 'ce_grid_start';
-
-    /**
-     * Parse the template.
-     *
-     * @return string Parsed element
-     */
-    public function generate(): string
+    protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
-        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
 
-        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
-            return parent::generate();
-        }
+        $template->gridClasses = '';
 
-        $parentKey = ($this->arrData['ptable'] ?: 'tl_article') . '__' . $this->arrData['pid'];
+        $parentKey = ($model->ptable ?: 'tl_article') . '__' . $model->pid;
 
         $GLOBALS['TL_CP_GRID'][$parentKey] = [
             'active' => true,
             'count' => 0,
-            'config' => static::getColumnsConfiguration($this->arrData),
+            'config' => static::getColumnsConfiguration($model->row()),
         ];
-        $this->arrData['gridClasses'] = implode(' ', $GLOBALS['TL_CP_GRID'][$parentKey]['config']);
+        $template->gridClasses = implode(' ', $GLOBALS['TL_CP_GRID'][$parentKey]['config']);
 
-        if ($this->cp_grid_valign) {
-            $this->arrData['gridClasses'] .= ' ' . $this->cp_grid_valign;
+        if ($model->cp_grid_valign) {
+            $template->gridClasses .= ' ' . $model->cp_grid_valign;
         }
 
-        if ($this->cp_grid_halign) {
-            $this->arrData['gridClasses'] .= ' ' . $this->cp_grid_halign;
+        if ($model->cp_grid_halign) {
+            $template->gridClasses .= ' ' . $model->cp_grid_halign;
         }
 
-
-        return parent::generate();
+        return $template->getResponse();
     }
 
     /**
@@ -75,7 +65,8 @@ class GridStart extends ContentElement
     {
         $config = [];
         foreach (['desktop', 'tablet', 'mobile'] as $media) {
-            if (isset($data['cp_grid_' . $media])) {
+            $mediaClass = 'cp_grid_' . $media;
+            if (isset($data[$mediaClass])) {
                 $columns = str_replace("grid", 'grid_' . $media, $data['cp_grid_' . $media]);
                 $config[$media] = $columns;
             } else {
@@ -84,22 +75,5 @@ class GridStart extends ContentElement
         }
 
         return $config;
-    }
-
-    /**
-     * Compile the content element.
-     */
-    public function compile(): void
-    {
-        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
-
-        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
-            $this->strTemplate = 'be_wildcard';
-            $this->Template = new BackendTemplate($this->strTemplate);
-            $this->Template->title = $this->headline;
-        } else {
-            $this->Template = new FrontendTemplate($this->strTemplate);
-            $this->Template->setData($this->arrData);
-        }
     }
 }

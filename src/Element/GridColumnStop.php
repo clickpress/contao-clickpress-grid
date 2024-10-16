@@ -13,10 +13,12 @@ declare(strict_types=1);
 
 namespace Clickpress\ContaoClickpressGridBundle\Element;
 
-use Contao\BackendTemplate;
-use Contao\ContentElement;
-use Contao\FrontendTemplate;
-use Contao\System;
+use Contao\ContentModel;
+use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
+use Contao\Template;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Column stop content element
@@ -25,48 +27,12 @@ use Contao\System;
  * @author Martin Auswöger <martin@madeyourday.net>
  * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
  */
-class GridColumnStop extends ContentElement
+
+#[AsContentElement('cp_column_stop', 'cp_grid', template: 'ce_grid_column_stop')]
+class GridColumnStop extends AbstractContentElementController
 {
-    /**
-     * @var string Template
-     */
-    protected $strTemplate = 'ce_grid_column_stop';
-
-    /**
-     * Parse the template.
-     *
-     * @return string Parsed element
-     */
-    public function generate(): string
+    protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
-        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
-
-        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
-            return parent::generate();
-        }
-
-        $parentKey = ($this->arrData['ptable'] ?: 'tl_article') . '__' . $this->arrData['pid'];
-        if (isset($GLOBALS['TL_CP_GRID'][$parentKey]) && !$GLOBALS['TL_CP_GRID'][$parentKey]['active']) {
-            $GLOBALS['TL_CP_GRID'][$parentKey]['active'] = true;
-        }
-
-        return parent::generate();
-    }
-
-    /**
-     * Compile the content element.
-     */
-    public function compile(): void
-    {
-        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
-
-        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
-            $this->strTemplate = 'be_wildcard';
-            $this->Template = new BackendTemplate($this->strTemplate);
-            $this->Template->title = $this->headline;
-        } else {
-            $this->Template = new FrontendTemplate($this->strTemplate);
-            $this->Template->setData($this->arrData);
-        }
+        return $template->getResponse();
     }
 }

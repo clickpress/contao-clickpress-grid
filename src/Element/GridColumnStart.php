@@ -13,10 +13,12 @@ declare(strict_types=1);
 
 namespace Clickpress\ContaoClickpressGridBundle\Element;
 
-use Contao\BackendTemplate;
-use Contao\ContentElement;
-use Contao\FrontendTemplate;
-use Contao\System;
+use Contao\ContentModel;
+use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
+use Contao\Template;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Column start content element
@@ -25,37 +27,12 @@ use Contao\System;
  * @author Martin Auswöger <martin@madeyourday.net>
  * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
  */
-class GridColumnStart extends ContentElement
+
+#[AsContentElement(type: 'cp_column_start', category: 'cp_grid', template: 'ce_grid_column_start')]
+class GridColumnStart extends AbstractContentElementController
 {
-    /**
-     * @var string Template
-     */
-    protected $strTemplate = 'ce_grid_column_start';
-
-    /**
-     * Parse the template.
-     *
-     * @return string Parsed element
-     */
-    public function generate(): string
+    protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
-        return parent::generate();
-    }
-
-    /**
-     * Compile the content element.
-     */
-    public function compile(): void
-    {
-        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
-
-        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
-            $this->strTemplate = 'be_wildcard';
-            $this->Template = new BackendTemplate($this->strTemplate);
-            $this->Template->title = $this->headline;
-        } else {
-            $this->Template = new FrontendTemplate($this->strTemplate);
-            $this->Template->setData($this->arrData);
-        }
+        return $template->getResponse();
     }
 }

@@ -17,17 +17,9 @@
  * @author Jannik Nölke <mail@jaynoe.de>
  */
 
-use Clickpress\ContaoClickpressGridBundle\Element\GridColumnStart;
-use Clickpress\ContaoClickpressGridBundle\Element\GridStart;
-use Clickpress\ContaoClickpressGridBundle\Element\GridStop;
 use Clickpress\ContaoClickpressGridBundle\Forms\FormGridColumnStart;
 use Clickpress\ContaoClickpressGridBundle\Forms\FormGridStart;
 use Clickpress\ContaoClickpressGridBundle\Forms\FormGridStop;
-
-$GLOBALS['TL_CTE']['cp_grid']['cp_grid_start'] = GridStart::class;
-$GLOBALS['TL_CTE']['cp_grid']['cp_grid_stop'] = GridStop::class;
-$GLOBALS['TL_CTE']['cp_grid']['cp_column_start'] = GridColumnStart::class;
-$GLOBALS['TL_CTE']['cp_grid']['cp_column_stop'] = GridColumnStart::class;
 
 $GLOBALS['TL_WRAPPERS']['start'][] = 'cp_grid_start';
 $GLOBALS['TL_WRAPPERS']['stop'][] = 'cp_grid_stop';

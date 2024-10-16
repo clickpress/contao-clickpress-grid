@@ -13,10 +13,13 @@ declare(strict_types=1);
 
 namespace Clickpress\ContaoClickpressGridBundle\Element;
 
-use Contao\BackendTemplate;
-use Contao\ContentElement;
-use Contao\FrontendTemplate;
-use Contao\System;
+use Contao\ContentModel;
+use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
+use Contao\Template;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
 use const E_USER_WARNING;
 
 /**
@@ -26,33 +29,19 @@ use const E_USER_WARNING;
  * @author Martin Auswöger <martin@madeyourday.net>
  * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
  */
-class GridStop extends ContentElement
+
+#[AsContentElement(type: 'cp_grid_stop', category: 'cp_grid', template: 'ce_grid_stop')]
+class GridStop extends AbstractContentElementController
 {
-    /**
-     * @var string Template
-     */
-    protected $strTemplate = 'ce_grid_stop';
-
-    /**
-     * /**
-     * Parse the template.
-     *
-     * @return string Parsed element
-     */
-    public function generate(): string
+    protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
-        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
 
-        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
-            return parent::generate();
-        }
-
-        $parentKey = ($this->arrData['ptable'] ?: 'tl_article') . '__' . $this->arrData['pid'];
+        $parentKey = ($model->ptable ?: 'tl_article') . '__' . $model->pid;
 
         if (isset($GLOBALS['TL_CP_GRID'][$parentKey])) {
             if (!$GLOBALS['TL_CP_GRID'][$parentKey]['active']) {
                 trigger_error(
-                    'Missing column stop element before column wrapper stop element ID ' . $this->id . '.',
+                    'Missing column stop element before column wrapper stop element ID ' . $model->id . '.',
                     E_USER_WARNING
                 );
             }
@@ -68,23 +57,6 @@ class GridStop extends ContentElement
             }
         }
 
-        return parent::generate() . $htmlSuffix;
-    }
-
-    /**
-     * Compile the content element.
-     */
-    public function compile(): void
-    {
-        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
-
-        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
-            $this->strTemplate = 'be_wildcard';
-            $this->Template = new BackendTemplate($this->strTemplate);
-            $this->Template->title = $this->headline;
-        } else {
-            $this->Template = new FrontendTemplate($this->strTemplate);
-            $this->Template->setData($this->arrData);
-        }
+        return $template->getResponse();
     }
 }
