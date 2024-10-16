@@ -17,17 +17,24 @@
  * @author Jannik Nölke <mail@jaynoe.de>
  */
 
-$GLOBALS['TL_CTE']['cp_grid']['cp_grid_start'] = 'Clickpress\\ContaoClickpressGridBundle\\Element\\GridStart';
-$GLOBALS['TL_CTE']['cp_grid']['cp_grid_stop'] = 'Clickpress\\ContaoClickpressGridBundle\\Element\\GridStop';
-$GLOBALS['TL_CTE']['cp_grid']['cp_column_start'] = 'Clickpress\\ContaoClickpressGridBundle\\Element\\GridColumnStart';
-$GLOBALS['TL_CTE']['cp_grid']['cp_column_stop'] = 'Clickpress\\ContaoClickpressGridBundle\\Element\\GridColumnStop';
+use Clickpress\ContaoClickpressGridBundle\Element\GridColumnStart;
+use Clickpress\ContaoClickpressGridBundle\Element\GridStart;
+use Clickpress\ContaoClickpressGridBundle\Element\GridStop;
+use Clickpress\ContaoClickpressGridBundle\Forms\FormGridColumnStart;
+use Clickpress\ContaoClickpressGridBundle\Forms\FormGridStart;
+use Clickpress\ContaoClickpressGridBundle\Forms\FormGridStop;
+
+$GLOBALS['TL_CTE']['cp_grid']['cp_grid_start'] = GridStart::class;
+$GLOBALS['TL_CTE']['cp_grid']['cp_grid_stop'] = GridStop::class;
+$GLOBALS['TL_CTE']['cp_grid']['cp_column_start'] = GridColumnStart::class;
+$GLOBALS['TL_CTE']['cp_grid']['cp_column_stop'] = GridColumnStart::class;
 
 $GLOBALS['TL_WRAPPERS']['start'][] = 'cp_grid_start';
 $GLOBALS['TL_WRAPPERS']['stop'][] = 'cp_grid_stop';
 $GLOBALS['TL_WRAPPERS']['start'][] = 'cp_column_start';
 $GLOBALS['TL_WRAPPERS']['stop'][] = 'cp_column_stop';
 
-$GLOBALS['TL_FFL']['cp_grid_start'] = 'Clickpress\\ContaoClickpressGridBundle\\Forms\\FormGridStart';
-$GLOBALS['TL_FFL']['cp_grid_stop'] = 'Clickpress\\ContaoClickpressGridBundle\\Forms\\FormGridStop';
-$GLOBALS['TL_FFL']['cp_column_start'] = 'Clickpress\\ContaoClickpressGridBundle\\Forms\\FormGridColumnStart';
-$GLOBALS['TL_FFL']['cp_column_stop'] = 'Clickpress\\ContaoClickpressGridBundle\\Forms\\FormGridColumnStop';
+$GLOBALS['TL_FFL']['cp_grid_start'] = FormGridStart::class;
+$GLOBALS['TL_FFL']['cp_grid_stop'] = FormGridStop::class;
+$GLOBALS['TL_FFL']['cp_column_start'] = FormGridColumnStart::class;
+$GLOBALS['TL_FFL']['cp_column_stop'] = FormGridColumnStart::class;
