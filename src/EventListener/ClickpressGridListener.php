@@ -13,14 +13,13 @@ declare(strict_types=1);
 
 namespace Clickpress\ContaoClickpressGridBundle\EventListener;
 
-use Contao\CoreBundle\ServiceAnnotation\Callback;
-use Contao\CoreBundle\ServiceAnnotation\Hook;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\Database;
 use Contao\DataContainer;
 use Contao\LayoutModel;
 use Contao\PageModel;
 use Contao\PageRegular;
-use Terminal42\ServiceAnnotationBundle\ServiceAnnotationInterface;
 
 /**
  * ClickpressGridListener
@@ -31,11 +30,9 @@ use Terminal42\ServiceAnnotationBundle\ServiceAnnotationInterface;
  * @author Martin Auswöger <martin@madeyourday.net>
  * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
  */
-class ClickpressGridListener implements ServiceAnnotationInterface
+class ClickpressGridListener
 {
-    /**
-     * @Hook("generatePage")
-     */
+    #[AsHook('generatePage')]
     public function onGeneratePage(PageModel $pageModel, LayoutModel $layout, PageRegular $pageRegular): void
     {
         if ($layout->cp_grid_load_css) {
@@ -47,11 +44,8 @@ class ClickpressGridListener implements ServiceAnnotationInterface
      * tl_content DCA onsubmit callback.
      *
      * Creates a stop element after a start element was created
-     *
-     * @param DataContainer $dc Data container
-     *
-     * @Callback(table="tl_content", target="config.onsubmit")
      */
+    #[AsCallback(table: 'tl_content', target: 'config.onsubmit')]
     public function onsubmitCallback(DataContainer $dc): void
     {
         $activeRecord = $dc->activeRecord;
@@ -91,8 +85,8 @@ class ClickpressGridListener implements ServiceAnnotationInterface
 
                 // Get all default values for the new entry
                 foreach ($GLOBALS['TL_DCA']['tl_content']['fields'] as $field => $config) {
-                    if (\array_key_exists('default', $config)) {
-                        $set[$field] = \is_array($config['default']) ? serialize($config['default']) : $config['default'];
+                    if (array_key_exists('default', $config)) {
+                        $set[$field] = is_array($config['default']) ? serialize($config['default']) : $config['default'];
                     }
                 }
 
