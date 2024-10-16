@@ -3,6 +3,6 @@ services:
     autowire: true
     autoconfigure: true
 
-    Clickpress\ContaoClickpressGridBundle\:
-      resource: ../src
-      exclude: ../src/{ContaoManager}
+  Clickpress\ContaoClickpressGridBundle\:
+    resource: ../src
+    exclude: ../src/{ContaoManager}
