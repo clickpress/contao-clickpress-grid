@@ -110,7 +110,7 @@ class GridStart extends AbstractContentElementController
         );
 
         $configInfo .= sprintf(
-            '%s: %s, ',
+            '%s: %s',
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_desktop'][0],
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_desktop]
         );
