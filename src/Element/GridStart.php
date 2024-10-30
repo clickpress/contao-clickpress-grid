@@ -42,8 +42,12 @@ class GridStart extends AbstractContentElementController
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
 
+        dump($model->row());
+
+        $configInfo = $this->getConfigInfo($model);
+
         if ($this->scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest())) {
-            return new Response('');
+            return new Response($configInfo);
         }
 
         $template->gridClasses = '';
@@ -87,5 +91,32 @@ class GridStart extends AbstractContentElementController
         }
 
         return $config;
+    }
+
+    private function getConfigInfo(ContentModel $model): string
+    {
+        $configInfo = '<span style="font-size: .75rem; margin-bottom: 1rem; color: grey;">';
+
+        $configInfo .= sprintf(
+            '%s: %s, ',
+            $GLOBALS['TL_LANG']['tl_content']['cp_grid_mobile'][0],
+            $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_mobile]
+        );
+
+        $configInfo .= sprintf(
+            '%s: %s, ',
+            $GLOBALS['TL_LANG']['tl_content']['cp_grid_tablet'][0],
+            $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_tablet]
+        );
+
+        $configInfo .= sprintf(
+            '%s: %s, ',
+            $GLOBALS['TL_LANG']['tl_content']['cp_grid_desktop'][0],
+            $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_desktop]
+        );
+
+        $configInfo .= '</span>';
+
+        return $configInfo;
     }
 }
