@@ -42,7 +42,7 @@ class GridStart extends AbstractContentElementController
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
 
-        if ($this->scopeMatcher->isBackendRequest()) {
+        if ($this->scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest())) {
             return new Response('');
         }
 
