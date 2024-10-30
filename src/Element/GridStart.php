@@ -95,7 +95,7 @@ class GridStart extends AbstractContentElementController
 
     private function getConfigInfo(ContentModel $model): string
     {
-        $configInfo = '<span style="font-size: .75rem; margin-bottom: 1rem; color: grey;">';
+        $configInfo = '<span class="tl_help">';
 
         $configInfo .= sprintf(
             '%s: %s, ',
