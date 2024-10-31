@@ -11,13 +11,16 @@ $GLOBALS['TL_LANG']['tl_content']['cp_grid_mobile'] = ['Mobile', 'Spaltenanzahl 
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_valign_options'] = [
     'top' => 'oben',
     'center' => 'zentriert',
-    'bottom' => 'unten'
+    'bottom' => 'unten',
+    'stretch' => 'strecken',
+    'baseline' => 'Grundlinie'
 ];
 
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_halign_options'] = [
     'left' => 'links',
     'center' => 'zentriert',
-    'right' => 'rechts'
+    'right' => 'rechts',
+    'stretch' => 'strecken',
 ];
 
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'] = [
