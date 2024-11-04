@@ -101,6 +101,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_mobile'] = [
 $GLOBALS['TL_DCA']['tl_content']['fields']['cp_gap_mobile'] = [
     'inputType' => 'select',
     'reference' => &$GLOBALS['TL_LANG']['tl_content']['cp_gap_options'],
+    'default' => '',
     'options' => [
         'gap_0',
         'gap_1',
@@ -125,6 +126,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['cp_gap_mobile'] = [
 ];
 $GLOBALS['TL_DCA']['tl_content']['fields']['cp_gap_tablet'] = [
     'inputType' => 'select',
+    'default' => '',
     'options' => [
         'gap_0',
         'gap_1',
@@ -150,6 +152,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['cp_gap_tablet'] = [
 ];
 $GLOBALS['TL_DCA']['tl_content']['fields']['cp_gap_desktop'] = [
     'inputType' => 'select',
+    'default' => '',
     'options' => [
         'gap_0',
         'gap_1',
