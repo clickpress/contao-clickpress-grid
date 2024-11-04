@@ -19,6 +19,7 @@ $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'] = [
     'grid_50_50' => '2 columns',
     'grid_33_33_33' => '3 columns',
     'grid_25_25_25_25' => '4 columns',
+    'grid_20_20_20_20_20' => '5 columns',
     'grid_75_25' => '2 columns - divided into 75% 25%',
     'grid_25_75' => '2 columns - divided into 25% 75%',
     'grid_66_33' => '2 columns - divided into 66% 33%',
@@ -50,6 +51,8 @@ $GLOBALS['TL_LANG']['tl_content']['cp_gap_options'] = [
     'gap_8' => '8',
     'gap_9' => '9',
     'gap_10' => '10',
+    'gap_11' => '11',
+    'gap_12' => '12',
 ];
 
 // Legend
