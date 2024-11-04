@@ -79,6 +79,19 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
   .grid_mobile_30_30_40 {
     grid-template-columns: 3fr 3fr 4fr;
   }
+  .gap_mobile_0 { grid-gap: 0; }
+  .gap_mobile_1 { grid-gap: 1rem; }
+  .gap_mobile_2 { grid-gap: 2rem; }
+  .gap_mobile_3 { grid-gap: 3rem; }
+  .gap_mobile_4 { grid-gap: 4rem; }
+  .gap_mobile_5 { grid-gap: 5rem; }
+  .gap_mobile_6 { grid-gap: 6rem; }
+  .gap_mobile_7 { grid-gap: 7rem; }
+  .gap_mobile_8 { grid-gap: 8rem; }
+  .gap_mobile_9 { grid-gap: 9rem; }
+  .gap_mobile_10 { grid-gap: 10rem; }
+  .gap_mobile_11 { grid-gap: 11rem; }
+  .gap_mobile_12 { grid-gap: 12rem; }
 }
 
 @media (min-width: $mq_medium) {
@@ -133,6 +146,19 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
   .grid_tablet_40_40_20 {
     grid-template-columns: 2fr 2fr 1fr;
   }
+  .gap_tablet_0 { grid-gap: 0; }
+  .gap_tablet_1 { grid-gap: 1rem; }
+  .gap_tablet_2 { grid-gap: 2rem; }
+  .gap_tablet_3 { grid-gap: 3rem; }
+  .gap_tablet_4 { grid-gap: 4rem; }
+  .gap_tablet_5 { grid-gap: 5rem; }
+  .gap_tablet_6 { grid-gap: 6rem; }
+  .gap_tablet_7 { grid-gap: 7rem; }
+  .gap_tablet_8 { grid-gap: 8rem; }
+  .gap_tablet_9 { grid-gap: 9rem; }
+  .gap_tablet_10 { grid-gap: 10rem; }
+  .gap_tablet_11 { grid-gap: 11rem; }
+  .gap_tablet_12 { grid-gap: 12rem; }
 }
 
 
@@ -212,6 +238,19 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
   .grid_desktop_20_20_20_20_20 {
     grid-template-columns: repeat(5, 1fr);
   }
+  .gap_desktop_0 { grid-gap: 0; }
+  .gap_desktop_1 { grid-gap: 1rem; }
+  .gap_desktop_2 { grid-gap: 2rem; }
+  .gap_desktop_3 { grid-gap: 3rem; }
+  .gap_desktop_4 { grid-gap: 4rem; }
+  .gap_desktop_5 { grid-gap: 5rem; }
+  .gap_desktop_6 { grid-gap: 6rem; }
+  .gap_desktop_7 { grid-gap: 7rem; }
+  .gap_desktop_8 { grid-gap: 8rem; }
+  .gap_desktop_9 { grid-gap: 9rem; }
+  .gap_desktop_10 { grid-gap: 10rem; }
+  .gap_desktop_11 { grid-gap: 11rem; }
+  .gap_desktop_12 { grid-gap: 12rem; }
 }
 
 @media (min-width: $mq_extra) {

@@ -7,6 +7,10 @@ $GLOBALS['TL_LANG']['tl_content']['cp_grid_desktop'] = ['Desktop', 'Set columns 
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_tablet'] = ['Tablet', 'Set columns in tablet view'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_mobile'] = ['Mobile', 'Set columns in mobile view'];
 
+$GLOBALS['TL_LANG']['tl_content']['cp_gap_desktop'] = ['Column gap desktop', 'Gap between the columns in desktop view in rem (1rem is usually 16px)'];
+$GLOBALS['TL_LANG']['tl_content']['cp_gap_tablet'] = ['Column gap tablet', 'Gap between the columns in tablet view rem (1rem is usually 16px)'];
+$GLOBALS['TL_LANG']['tl_content']['cp_gap_mobile'] = ['Column gap mobile', 'Gap between the columns in mobile view rem (1rem is usually 16px)'];
+
 // References
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'] = [
     'grid_100' => '1 column',
@@ -30,6 +34,20 @@ $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'] = [
     'grid_20_40_20_20' => '4 columns - divided into 20% 40% 20% 20%',
     'grid_20_20_40_20' => '4 columns - divided into 20% 20% 40% 20%',
     'grid_20_20_20_40' => '4 columns - divided into 20% 20% 20% 40%',
+];
+
+$GLOBALS['TL_LANG']['tl_content']['cp_gap_options'] = [
+    'gap_0' => 'no gap',
+    'gap_1' => '1',
+    'gap_2' => '2',
+    'gap_3' => '3',
+    'gap_4' => '4',
+    'gap_5' => '5',
+    'gap_6' => '6',
+    'gap_7' => '7',
+    'gap_8' => '8',
+    'gap_9' => '9',
+    'gap_10' => '10'
 ];
 
 // Legend

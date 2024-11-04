@@ -66,6 +66,10 @@ class GridStart extends AbstractContentElementController
             $template->gridClasses .= ' ' . $model->cp_grid_halign;
         }
 
+        $template->gridClasses .= $this->generateGapClass('mobile', $model->cp_gap_mobile);
+        $template->gridClasses .= $this->generateGapClass('tablet', $model->cp_gap_tablet);
+        $template->gridClasses .= $this->generateGapClass('desktop', $model->cp_gap_desktop);
+
         return $template->getResponse();
     }
 
@@ -90,6 +94,25 @@ class GridStart extends AbstractContentElementController
         return $config;
     }
 
+    /**
+     * Generate the device-specific class based on gap presence and type.
+     *
+     * @param string $deviceType Type of the device (e.g., desktop, tablet, mobile)
+     * @param mixed $gap Gap information (can be any type depending on its usage)
+     * @return string Generated device class
+     */
+    public function generateGapClass(string $deviceType, string $gap): string
+    {
+        $gapArray = explode('_', $gap);
+        return $gap ? " {$gapArray[0]}_{$deviceType}_{$gapArray[1]} " : '';
+    }
+
+    /**
+     * Generates a configuration information string for the given content model.
+     *
+     * @param ContentModel $model The content model containing configuration information.
+     * @return string The formatted configuration information string.
+     */
     private function getConfigInfo(ContentModel $model): string
     {
         $configInfo = '<span class="tl_help">';
