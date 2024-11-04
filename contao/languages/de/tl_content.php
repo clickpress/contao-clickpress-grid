@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_valign'] = ['Vertikale Ausrichtung', 'Position der Elemente auf der Y-Achse'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_halign'] = ['Horizontale Ausrichtung', 'Position der Elemente auf der X-Achse'];
 
@@ -17,7 +19,7 @@ $GLOBALS['TL_LANG']['tl_content']['cp_grid_valign_options'] = [
     'center' => 'zentriert',
     'bottom' => 'unten',
     'stretch' => 'strecken',
-    'baseline' => 'Grundlinie'
+    'baseline' => 'Grundlinie',
 ];
 
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_halign_options'] = [

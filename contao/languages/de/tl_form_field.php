@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 $GLOBALS['TL_LANG']['tl_form_field']['form_cp_grid_desktop'] = ['Desktop', 'Spaltenanzahl in der Desktopansicht'];
 $GLOBALS['TL_LANG']['tl_form_field']['form_cp_grid_tablet'] = ['Tablet', 'Spaltenanzahl in der Tabletansicht'];
 $GLOBALS['TL_LANG']['tl_form_field']['form_cp_grid_mobile'] = ['Mobile', 'Spaltenanzahl in der Mobilansicht'];

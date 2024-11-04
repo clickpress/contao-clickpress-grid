@@ -23,20 +23,13 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Column stop content element
- * Taken with friendly permission from RockSolid Columns.
- *
- * @author Martin Auswöger <martin@madeyourday.net>
- * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
+ * Column stop content element Taken with friendly permission from RockSolid Columns.
  */
-
 #[AsContentElement(type: 'cp_column_stop', category: 'cp_grid', template: 'ce_grid_column_stop')]
 class GridColumnStop extends AbstractContentElementController
 {
-    public function __construct(
-        readonly RequestStack $requestStack,
-        readonly ScopeMatcher $scopeMatcher,
-    ) {
+    public function __construct(readonly RequestStack $requestStack, readonly ScopeMatcher $scopeMatcher)
+    {
     }
 
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
@@ -45,7 +38,7 @@ class GridColumnStop extends AbstractContentElementController
             return new Response('');
         }
 
-        $parentKey = ($model->ptable ?: 'tl_article') . '__' . $model->pid;
+        $parentKey = ($model->ptable ?: 'tl_article').'__'.$model->pid;
         if (isset($GLOBALS['TL_CP_GRID'][$parentKey]) && !$GLOBALS['TL_CP_GRID'][$parentKey]['active']) {
             $GLOBALS['TL_CP_GRID'][$parentKey]['active'] = true;
         }

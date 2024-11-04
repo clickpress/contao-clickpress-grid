@@ -18,12 +18,7 @@ use Contao\System;
 use Contao\Widget;
 
 /**
- * Column stop content element
- * Taken with friendly permission from RockSolid Columns.
- *
- * @author Martin Auswöger <martin@madeyourday.net>
- * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
- * @author Jannik Nölke <mail@jaynoe.de>
+ * Column stop content element Taken with friendly permission from RockSolid Columns.
  */
 class FormGridColumnStop extends Widget
 {

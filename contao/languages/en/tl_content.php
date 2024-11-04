@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_valign'] = ['Vertical align', 'Position along a container\'s cross axis'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_halign'] = ['Horizontal align', 'Position along a container\'s main axis'];
 
@@ -47,7 +49,7 @@ $GLOBALS['TL_LANG']['tl_content']['cp_gap_options'] = [
     'gap_7' => '7',
     'gap_8' => '8',
     'gap_9' => '9',
-    'gap_10' => '10'
+    'gap_10' => '10',
 ];
 
 // Legend

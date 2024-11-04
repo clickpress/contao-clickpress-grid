@@ -23,20 +23,13 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Column start content element
- * Taken with friendly permission from RockSolid Columns.
- *
- * @author Martin Auswöger <martin@madeyourday.net>
- * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
+ * Column start content element Taken with friendly permission from RockSolid Columns.
  */
-
 #[AsContentElement(type: 'cp_column_start', category: 'cp_grid', template: 'ce_grid_column_start')]
 class GridColumnStart extends AbstractContentElementController
 {
-    public function __construct(
-        readonly RequestStack $requestStack,
-        readonly ScopeMatcher $scopeMatcher,
-    ) {
+    public function __construct(readonly RequestStack $requestStack, readonly ScopeMatcher $scopeMatcher)
+    {
     }
 
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response

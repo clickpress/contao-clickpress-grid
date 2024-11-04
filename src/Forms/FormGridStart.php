@@ -18,12 +18,7 @@ use Contao\System;
 use Contao\Widget;
 
 /**
- * Grid start content element
- * Taken with friendly permission from RockSolid Columns.
- *
- * @author Martin Auswöger <martin@madeyourday.net>
- * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
- * @author Jannik Nölke <mail@jaynoe.de>
+ * Grid start content element Taken with friendly permission from RockSolid Columns.
  */
 class FormGridStart extends Widget
 {
@@ -55,9 +50,9 @@ class FormGridStart extends Widget
             return $objTemplate->parse();
         }
         $gridClasses = [
-            str_replace("grid", 'grid_desktop', $this->form_cp_grid_desktop),
-            str_replace("grid", 'grid_tablet', $this->form_cp_grid_tablet),
-            str_replace("grid", 'grid_mobile', $this->form_cp_grid_mobile),
+            str_replace('grid', 'grid_desktop', $this->form_cp_grid_desktop),
+            str_replace('grid', 'grid_tablet', $this->form_cp_grid_tablet),
+            str_replace('grid', 'grid_mobile', $this->form_cp_grid_mobile),
         ];
         $arrAttributes['gridClasses'] = implode(' ', $gridClasses);
 

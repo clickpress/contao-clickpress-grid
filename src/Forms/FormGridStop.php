@@ -18,12 +18,7 @@ use Contao\System;
 use Contao\Widget;
 
 /**
- * Grid stop content element
- * Taken with friendly permission from RockSolid Columns.
- *
- * @author Martin Auswöger <martin@madeyourday.net>
- * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
- * @author Jannik Nölke <mail@jaynoe.de>
+ * Grid stop content element Taken with friendly permission from RockSolid Columns.
  */
 class FormGridStop extends Widget
 {
@@ -35,7 +30,7 @@ class FormGridStop extends Widget
     /**
      * Do not validate.
      */
-    public function validate()
+    public function validate(): void
     {
     }
 

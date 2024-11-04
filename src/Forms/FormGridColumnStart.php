@@ -18,12 +18,7 @@ use Contao\System;
 use Contao\Widget;
 
 /**
- * Column start content element
- * Taken with friendly permission from RockSolid Columns.
- *
- * @author Martin Auswöger <martin@madeyourday.net>
- * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
- * @author Jannik Nölke <mail@jaynoe.de>
+ * Column start content element Taken with friendly permission from RockSolid Columns.
  */
 class FormGridColumnStart extends Widget
 {

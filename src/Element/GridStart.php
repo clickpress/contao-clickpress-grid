@@ -23,54 +23,13 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Grid start content element
- * Taken with friendly permission from RockSolid Columns.
- *
- * @author Martin Auswöger <martin@madeyourday.net>
- * @author Stefan Schulz-Lauterbach <ssl@clickpress.de>
+ * Grid start content element Taken with friendly permission from RockSolid Columns.
  */
-
 #[AsContentElement(type: 'cp_grid_start', category: 'cp_grid', template: 'ce_grid_start')]
 class GridStart extends AbstractContentElementController
 {
-    public function __construct(
-        readonly RequestStack $requestStack,
-        readonly ScopeMatcher $scopeMatcher,
-    ) {
-    }
-
-    protected function getResponse(Template $template, ContentModel $model, Request $request): Response
+    public function __construct(readonly RequestStack $requestStack, readonly ScopeMatcher $scopeMatcher)
     {
-        $configInfo = $this->getConfigInfo($model);
-
-        if ($this->scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest())) {
-            return new Response($configInfo);
-        }
-
-        $template->gridClasses = '';
-
-        $parentKey = ($model->ptable ?: 'tl_article') . '__' . $model->pid;
-
-        $GLOBALS['TL_CP_GRID'][$parentKey] = [
-            'active' => true,
-            'count' => 0,
-            'config' => static::getColumnsConfiguration($model->row()),
-        ];
-        $template->gridClasses = implode(' ', $GLOBALS['TL_CP_GRID'][$parentKey]['config']);
-
-        if ($model->cp_grid_valign) {
-            $template->gridClasses .= ' ' . $model->cp_grid_valign;
-        }
-
-        if ($model->cp_grid_halign) {
-            $template->gridClasses .= ' ' . $model->cp_grid_halign;
-        }
-
-        $template->gridClasses .= $this->generateGapClass('mobile', $model->cp_gap_mobile);
-        $template->gridClasses .= $this->generateGapClass('tablet', $model->cp_gap_tablet);
-        $template->gridClasses .= $this->generateGapClass('desktop', $model->cp_gap_desktop);
-
-        return $template->getResponse();
     }
 
     /**
@@ -81,10 +40,11 @@ class GridStart extends AbstractContentElementController
     public static function getColumnsConfiguration(array $data): array
     {
         $config = [];
+
         foreach (['desktop', 'tablet', 'mobile'] as $media) {
-            $mediaClass = 'cp_grid_' . $media;
+            $mediaClass = 'cp_grid_'.$media;
             if (isset($data[$mediaClass])) {
-                $columns = str_replace("grid", 'grid_' . $media, $data['cp_grid_' . $media]);
+                $columns = str_replace('grid', 'grid_'.$media, $data['cp_grid_'.$media]);
                 $config[$media] = $columns;
             } else {
                 $config[$media] = null;
@@ -98,41 +58,78 @@ class GridStart extends AbstractContentElementController
      * Generate the device-specific class based on gap presence and type.
      *
      * @param string $deviceType Type of the device (e.g., desktop, tablet, mobile)
-     * @param mixed $gap Gap information (can be any type depending on its usage)
+     * @param mixed  $gap        Gap information (can be any type depending on its usage)
+     *
      * @return string Generated device class
      */
     public function generateGapClass(string $deviceType, string $gap): string
     {
         $gapArray = explode('_', $gap);
+
         return $gap ? " {$gapArray[0]}_{$deviceType}_{$gapArray[1]} " : '';
+    }
+
+    protected function getResponse(Template $template, ContentModel $model, Request $request): Response
+    {
+        $configInfo = $this->getConfigInfo($model);
+
+        if ($this->scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest())) {
+            return new Response($configInfo);
+        }
+
+        $template->gridClasses = '';
+
+        $parentKey = ($model->ptable ?: 'tl_article').'__'.$model->pid;
+
+        $GLOBALS['TL_CP_GRID'][$parentKey] = [
+            'active' => true,
+            'count' => 0,
+            'config' => static::getColumnsConfiguration($model->row()),
+        ];
+        $template->gridClasses = implode(' ', $GLOBALS['TL_CP_GRID'][$parentKey]['config']);
+
+        if ($model->cp_grid_valign) {
+            $template->gridClasses .= ' '.$model->cp_grid_valign;
+        }
+
+        if ($model->cp_grid_halign) {
+            $template->gridClasses .= ' '.$model->cp_grid_halign;
+        }
+
+        $template->gridClasses .= $this->generateGapClass('mobile', $model->cp_gap_mobile);
+        $template->gridClasses .= $this->generateGapClass('tablet', $model->cp_gap_tablet);
+        $template->gridClasses .= $this->generateGapClass('desktop', $model->cp_gap_desktop);
+
+        return $template->getResponse();
     }
 
     /**
      * Generates a configuration information string for the given content model.
      *
-     * @param ContentModel $model The content model containing configuration information.
-     * @return string The formatted configuration information string.
+     * @param ContentModel $model the content model containing configuration information
+     *
+     * @return string the formatted configuration information string
      */
     private function getConfigInfo(ContentModel $model): string
     {
         $configInfo = '<span class="tl_help">';
 
-        $configInfo .= sprintf(
+        $configInfo .= \sprintf(
             '%s: %s, ',
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_mobile'][0],
-            $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_mobile]
+            $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_mobile],
         );
 
-        $configInfo .= sprintf(
+        $configInfo .= \sprintf(
             '%s: %s, ',
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_tablet'][0],
-            $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_tablet]
+            $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_tablet],
         );
 
-        $configInfo .= sprintf(
+        $configInfo .= \sprintf(
             '%s: %s',
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_desktop'][0],
-            $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_desktop]
+            $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_desktop],
         );
 
         $configInfo .= '</span>';
