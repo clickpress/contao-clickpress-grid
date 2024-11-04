@@ -112,24 +112,32 @@ class GridStart extends AbstractContentElementController
      */
     private function getConfigInfo(ContentModel $model): string
     {
+
+        $getCpGap = static function($gap, $default = '-') use ($model) {
+            return !empty($gap) ? '('.$GLOBALS['TL_LANG']['tl_content']['cp_gap_options'][$gap].')' : $default;
+        };
+
         $configInfo = '<span class="tl_help">';
 
         $configInfo .= \sprintf(
-            '%s: %s, ',
+            '%s: %s %s, ',
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_mobile'][0],
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_mobile],
+            $getCpGap($model->cp_gap_mobile)
         );
 
         $configInfo .= \sprintf(
-            '%s: %s, ',
+            '%s: %s %s, ',
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_tablet'][0],
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_tablet],
+            $getCpGap($model->cp_gap_tablet)
         );
 
         $configInfo .= \sprintf(
-            '%s: %s',
+            '%s: %s %s, ',
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_desktop'][0],
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_desktop],
+            $getCpGap($model->cp_gap_desktop)
         );
 
         $configInfo .= '</span>';
