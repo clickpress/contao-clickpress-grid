@@ -16,6 +16,7 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
 .justify-items-start {justify-items: start;}
 .justify-items-center {justify-items: center;}
 .justify-items-end {justify-items: end;}
+.justify-items-stretch {justify-items: stretch;}
 
 .content-start {align-content: start; }
 .content-center {align-content: center; }
@@ -24,6 +25,8 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
 .items-start {align-items: start; }
 .items-center {align-items: center; }
 .items-end {align-items: end; }
+.items-stretch {align-items: stretch; }
+.items-baseline {align-items: baseline; }
 
 [class*="grid_"] {
   display: grid;

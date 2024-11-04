@@ -110,7 +110,9 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_valign'] = [
     'options' => [
         'items-start' => 'top',
         'items-center' => 'center',
-        'items-end' => 'bottom'
+        'items-end' => 'bottom',
+        'items-stretch' => 'stretch',
+        'items-baseline' => 'baseline'
     ],
     'reference' => &$GLOBALS['TL_LANG']['tl_content']['cp_grid_valign_options'],
     'eval' => [
@@ -126,7 +128,8 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_halign'] = [
     'options' => [
         'justify-items-start'=>'left',
         'justify-items-center'=>'center',
-        'justify-items-end'=>'right'
+        'justify-items-end'=>'right',
+        'justify-items-stretch'=>'stretch',
     ],
     'reference' => &$GLOBALS['TL_LANG']['tl_content']['cp_grid_halign_options'],
     'eval' => [
