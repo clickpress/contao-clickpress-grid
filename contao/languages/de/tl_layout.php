@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 // Legends
 $GLOBALS['TL_LANG']['tl_layout']['cp_grid_legend'] = 'Clickpress Grid CSS';
 

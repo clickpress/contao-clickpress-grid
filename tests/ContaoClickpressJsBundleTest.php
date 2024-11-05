@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of Contao Clickpress Grid.
  *
@@ -16,7 +18,7 @@ use PHPUnit\Framework\TestCase;
 
 class ContaoClickpressJsBundleTest extends TestCase
 {
-    public function testCanBeInstantiated()
+    public function testCanBeInstantiated(): void
     {
         $bundle = new ContaoClickpressGridBundle();
 

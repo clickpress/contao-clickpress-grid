@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of Contao Clickpress Grid.
  *
@@ -9,7 +11,7 @@
  * file that was distributed with this source code.
  */
 
-/**
+/*
  * Taken with friendly permission from RockSolid Columns
  *
  * @author Martin Auswöger <martin@madeyourday.net>

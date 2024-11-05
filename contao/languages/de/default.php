@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $GLOBALS['TL_LANG']['CTE']['cp_grid'] = 'Grid Spaltenset';
 $GLOBALS['TL_LANG']['CTE']['cp_grid_start'][0] = 'Spaltenset Anfang';
 $GLOBALS['TL_LANG']['CTE']['cp_grid_start'][1] = '';

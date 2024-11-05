@@ -3,12 +3,26 @@
     "type": "contao-bundle",
     "description": "Grid System for Contao based on CSS Grid",
     "license": "LGPL-3.0-or-later",
-    "authors": [
-        {
-            "name": "Stefan Schulz-Lauterbach",
-            "homepage": "https://github.com/stefansl"
-        }
-    ],
+  "authors": [
+    {
+      "name": "Stefan Schulz-Lauterbach",
+      "email": "ssl@clickpress.de",
+      "homepage": "https://clickpress.de",
+      "role": "Developer"
+    },
+    {
+      "name": "Martin Auswöger",
+      "email": "martin@madeyourday.net",
+      "homepage": "https://madeyourday.net",
+      "role": "Developer"
+    },
+    {
+      "name": "Jannik Nölke",
+      "email": "mail@jaynoe.de",
+      "homepage": "https://plakart.net",
+      "role": "Developer"
+    }
+  ],
     "require": {
         "php": "^8.1",
         "contao/core-bundle": "^5.3"

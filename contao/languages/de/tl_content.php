@@ -1,11 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_valign'] = ['Vertikale Ausrichtung', 'Position der Elemente auf der Y-Achse'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_halign'] = ['Horizontale Ausrichtung', 'Position der Elemente auf der X-Achse'];
 
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_desktop'] = ['Desktop', 'Spaltenanzahl in der Desktopansicht'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_tablet'] = ['Tablet', 'Spaltenanzahl in der Tabletansicht'];
-$GLOBALS['TL_LANG']['tl_content']['cp_grid_mobile'] = ['Mobile', 'Spaltenanzahl in der Mobilansicht'];
+$GLOBALS['TL_LANG']['tl_content']['cp_grid_mobile'] = ['Mobil', 'Spaltenanzahl in der Mobilansicht'];
+
+$GLOBALS['TL_LANG']['tl_content']['cp_gap_desktop'] = ['Spalten-Abstand Desktop', 'Spalten-Abstand in der Desktopansicht in rem (1rem entspricht meistens 16px)'];
+$GLOBALS['TL_LANG']['tl_content']['cp_gap_tablet'] = ['Spalten-Abstand Tablet', 'Spalten-Abstand in der Tabletansicht in rem (1rem entspricht meistens 16px)'];
+$GLOBALS['TL_LANG']['tl_content']['cp_gap_mobile'] = ['Spalten-Abstand Mobil', 'Spalten-Abstand in der Mobilansicht in rem (1rem entspricht meistens 16px)'];
 
 // References
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_valign_options'] = [
@@ -13,7 +19,7 @@ $GLOBALS['TL_LANG']['tl_content']['cp_grid_valign_options'] = [
     'center' => 'zentriert',
     'bottom' => 'unten',
     'stretch' => 'strecken',
-    'baseline' => 'Grundlinie'
+    'baseline' => 'Grundlinie',
 ];
 
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_halign_options'] = [
@@ -46,6 +52,22 @@ $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'] = [
     'grid_20_40_20_20' => '4 Spalten - aufgeteilt in 20% 40% 20% 20%',
     'grid_20_20_40_20' => '4 Spalten - aufgeteilt in 20% 20% 40% 20%',
     'grid_20_20_20_40' => '4 Spalten - aufgeteilt in 20% 20% 20% 40%',
+];
+
+$GLOBALS['TL_LANG']['tl_content']['cp_gap_options'] = [
+    'gap_0' => 'kein Abstand',
+    'gap_1' => '1',
+    'gap_2' => '2',
+    'gap_3' => '3',
+    'gap_4' => '4',
+    'gap_5' => '5',
+    'gap_6' => '6',
+    'gap_7' => '7',
+    'gap_8' => '8',
+    'gap_9' => '9',
+    'gap_10' => '10',
+    'gap_11' => '11',
+    'gap_12' => '12',
 ];
 
 // Legend
