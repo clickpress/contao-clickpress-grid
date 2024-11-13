@@ -52,15 +52,6 @@ class GridStop extends AbstractContentElementController
             unset($GLOBALS['TL_CP_GRID'][$parentKey]);
         }
 
-        $htmlSuffix = '';
-
-        if (!empty($GLOBALS['TL_CP_GRID_STACK'][$parentKey])) {
-            $GLOBALS['TL_CP_GRID'][$parentKey] = array_pop($GLOBALS['TL_CP_GRID_STACK'][$parentKey]);
-            if ($GLOBALS['TL_CP_GRID'][$parentKey]['active']) {
-                $htmlSuffix .= '</div>';
-            }
-        }
-
         return $template->getResponse();
     }
 }
