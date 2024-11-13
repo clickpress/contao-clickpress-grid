@@ -99,9 +99,9 @@ class GridStart extends AbstractContentElementController
             $template->gridClasses .= ' '.$model->cp_grid_halign;
         }
 
-        $template->gridClasses .= ($model->cp_gap_mobile)  ? $this->generateGapClass('mobile', $model->cp_gap_mobile) : '';
-        $template->gridClasses .= ($model->cp_gap_tablet) ? $this->generateGapClass('tablet', $model->cp_gap_tablet) : '';
-        $template->gridClasses .= ($model->cp_gap_desktop) ? $this->generateGapClass('desktop', $model->cp_gap_desktop) : '';
+        $template->gridClasses .= $model->cp_gap_mobile ? $this->generateGapClass('mobile', $model->cp_gap_mobile) : '';
+        $template->gridClasses .= $model->cp_gap_tablet ? $this->generateGapClass('tablet', $model->cp_gap_tablet) : '';
+        $template->gridClasses .= $model->cp_gap_desktop ? $this->generateGapClass('desktop', $model->cp_gap_desktop) : '';
 
         return $template->getResponse();
     }
@@ -116,28 +116,28 @@ class GridStart extends AbstractContentElementController
     private function getConfigInfo(ContentModel $model): string
     {
         System::loadLanguageFile('tl_content');
-        
+
         $configInfo = '<span class="tl_help">';
 
         $configInfo .= \sprintf(
             '%s: %s %s, ',
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_mobile'][0],
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_mobile],
-            isset($model->cp_gap_mobile) ? $this->formatGapOption($model->cp_gap_mobile) : ''
+            isset($model->cp_gap_mobile) ? $this->formatGapOption($model->cp_gap_mobile) : '',
         );
 
         $configInfo .= \sprintf(
             '%s: %s %s, ',
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_tablet'][0],
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_tablet],
-            isset($model->cp_gap_tablet) ? $this->formatGapOption($model->cp_gap_tablet) : ''
+            isset($model->cp_gap_tablet) ? $this->formatGapOption($model->cp_gap_tablet) : '',
         );
 
         $configInfo .= \sprintf(
             '%s: %s %s, ',
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_desktop'][0],
             $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'][$model->cp_grid_desktop],
-            isset($model->cp_gap_desktop) ? $this->formatGapOption($model->cp_gap_desktop) : ''
+            isset($model->cp_gap_desktop) ? $this->formatGapOption($model->cp_gap_desktop) : '',
         );
 
         $configInfo .= '</span>';
