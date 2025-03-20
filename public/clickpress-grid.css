@@ -85,6 +85,12 @@
   .grid_mobile_33_66 {
     grid-template-columns: 1fr 2fr;
   }
+  .grid_tablet_60_40 {
+    grid-template-columns: 3fr 2fr;
+  }
+  .grid_tablet_40_60 {
+    grid-template-columns: 2fr 3fr;
+  }
   .grid_mobile_50_25_25 {
     grid-template-columns: 2fr 1fr 1fr;
   }
@@ -167,6 +173,12 @@
   }
   .grid_tablet_33_66 {
     grid-template-columns: 1fr 2fr;
+  }
+  .grid_tablet_60_40 {
+    grid-template-columns: 3fr 2fr;
+  }
+  .grid_tablet_40_60 {
+    grid-template-columns: 2fr 3fr;
   }
   .grid_tablet_50_25_25 {
     grid-template-columns: 2fr 1fr 1fr;
@@ -256,6 +268,12 @@
   }
   .grid_desktop_66_33 {
     grid-template-columns: 2fr 1fr;
+  }
+  .grid_desktop_60_40 {
+    grid-template-columns: 2fr 1fr;
+  }
+  .grid_desktop_40_60 {
+    grid-template-columns: 1fr 2fr;
   }
   .grid_desktop_33_66 {
     grid-template-columns: 1fr 2fr;

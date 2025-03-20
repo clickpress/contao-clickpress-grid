@@ -22,6 +22,8 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_desktop'] = [
         'grid_25_75',
         'grid_66_33',
         'grid_33_66',
+        'grid_60_40',
+        'grid_40_60',
         'grid_50_25_25',
         'grid_25_50_25',
         'grid_25_25_50',

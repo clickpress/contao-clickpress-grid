@@ -2,16 +2,31 @@
 
 declare(strict_types=1);
 
-$GLOBALS['TL_LANG']['tl_content']['cp_grid_valign'] = ['Vertikale Ausrichtung', 'Position der Elemente auf der Y-Achse'];
-$GLOBALS['TL_LANG']['tl_content']['cp_grid_halign'] = ['Horizontale Ausrichtung', 'Position der Elemente auf der X-Achse'];
+$GLOBALS['TL_LANG']['tl_content']['cp_grid_valign'] = [
+    'Vertikale Ausrichtung',
+    'Position der Elemente auf der Y-Achse'
+];
+$GLOBALS['TL_LANG']['tl_content']['cp_grid_halign'] = [
+    'Horizontale Ausrichtung',
+    'Position der Elemente auf der X-Achse'
+];
 
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_desktop'] = ['Desktop', 'Spaltenanzahl in der Desktopansicht'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_tablet'] = ['Tablet', 'Spaltenanzahl in der Tabletansicht'];
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_mobile'] = ['Mobil', 'Spaltenanzahl in der Mobilansicht'];
 
-$GLOBALS['TL_LANG']['tl_content']['cp_gap_desktop'] = ['Spalten-Abstand Desktop', 'Spalten-Abstand in der Desktopansicht in rem (1rem entspricht meistens 16px)'];
-$GLOBALS['TL_LANG']['tl_content']['cp_gap_tablet'] = ['Spalten-Abstand Tablet', 'Spalten-Abstand in der Tabletansicht in rem (1rem entspricht meistens 16px)'];
-$GLOBALS['TL_LANG']['tl_content']['cp_gap_mobile'] = ['Spalten-Abstand Mobil', 'Spalten-Abstand in der Mobilansicht in rem (1rem entspricht meistens 16px)'];
+$GLOBALS['TL_LANG']['tl_content']['cp_gap_desktop'] = [
+    'Spalten-Abstand Desktop',
+    'Spalten-Abstand in der Desktopansicht in rem (1rem entspricht meistens 16px)'
+];
+$GLOBALS['TL_LANG']['tl_content']['cp_gap_tablet'] = [
+    'Spalten-Abstand Tablet',
+    'Spalten-Abstand in der Tabletansicht in rem (1rem entspricht meistens 16px)'
+];
+$GLOBALS['TL_LANG']['tl_content']['cp_gap_mobile'] = [
+    'Spalten-Abstand Mobil',
+    'Spalten-Abstand in der Mobilansicht in rem (1rem entspricht meistens 16px)'
+];
 
 // References
 $GLOBALS['TL_LANG']['tl_content']['cp_grid_valign_options'] = [
@@ -39,6 +54,8 @@ $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'] = [
     'grid_25_75' => '2 Spalten - aufgeteilt in 25% 75%',
     'grid_66_33' => '2 Spalten - aufgeteilt in 66% 33%',
     'grid_33_66' => '2 Spalten - aufgeteilt in 33% 66%',
+    'grid_60_40' => '2 Spalten - aufgeteilt in 60% 40%',
+    'grid_40_60' => '2 Spalten - aufgeteilt in 40% 60%',
     'grid_50_25_25' => '3 Spalten - aufgeteilt in 50% 25% 25%',
     'grid_25_50_25' => '3 Spalten - aufgeteilt in 25% 50% 25%',
     'grid_25_25_50' => '3 Spalten - aufgeteilt in 25% 25% 50%',
