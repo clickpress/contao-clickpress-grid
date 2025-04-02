@@ -20,6 +20,7 @@ declare(strict_types=1);
  */
 
 use Clickpress\ContaoClickpressGridBundle\Forms\FormGridColumnStart;
+use Clickpress\ContaoClickpressGridBundle\Forms\FormGridColumnStop;
 use Clickpress\ContaoClickpressGridBundle\Forms\FormGridStart;
 use Clickpress\ContaoClickpressGridBundle\Forms\FormGridStop;
 
@@ -31,4 +32,4 @@ $GLOBALS['TL_WRAPPERS']['stop'][] = 'cp_column_stop';
 $GLOBALS['TL_FFL']['cp_grid_start'] = FormGridStart::class;
 $GLOBALS['TL_FFL']['cp_grid_stop'] = FormGridStop::class;
 $GLOBALS['TL_FFL']['cp_column_start'] = FormGridColumnStart::class;
-$GLOBALS['TL_FFL']['cp_column_stop'] = FormGridColumnStart::class;
+$GLOBALS['TL_FFL']['cp_column_stop'] = FormGridColumnStop::class;
