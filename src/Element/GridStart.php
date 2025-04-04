@@ -45,9 +45,9 @@ class GridStart extends AbstractContentElementController
         $config = [];
 
         foreach (['desktop', 'tablet', 'mobile'] as $media) {
-            $mediaClass = 'cp_grid_'.$media;
+            $mediaClass = 'cp_grid_' . $media;
             if (isset($data[$mediaClass])) {
-                $columns = str_replace('grid', 'grid_'.$media, $data['cp_grid_'.$media]);
+                $columns = str_replace('grid', 'grid_' . $media, $data['cp_grid_' . $media]);
                 $config[$media] = $columns;
             } else {
                 $config[$media] = null;
@@ -61,7 +61,7 @@ class GridStart extends AbstractContentElementController
      * Generate the device-specific class based on gap presence and type.
      *
      * @param string $deviceType Type of the device (e.g., desktop, tablet, mobile)
-     * @param mixed  $gap        Gap information (can be any type depending on its usage)
+     * @param mixed $gap Gap information (can be any type depending on its usage)
      *
      * @return string Generated device class
      */
@@ -74,15 +74,13 @@ class GridStart extends AbstractContentElementController
 
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
-        $configInfo = $this->getConfigInfo($model);
-
         if ($this->scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest())) {
-            return new Response($configInfo);
+            return new Response($this->getConfigInfo($model));
         }
 
         $template->gridClasses = '';
 
-        $parentKey = ($model->ptable ?: 'tl_article').'__'.$model->pid;
+        $parentKey = ($model->ptable ?: 'tl_article') . '__' . $model->pid;
 
         $GLOBALS['TL_CP_GRID'][$parentKey] = [
             'active' => true,
@@ -92,16 +90,19 @@ class GridStart extends AbstractContentElementController
         $template->gridClasses = implode(' ', $GLOBALS['TL_CP_GRID'][$parentKey]['config']);
 
         if ($model->cp_grid_valign) {
-            $template->gridClasses .= ' '.$model->cp_grid_valign;
+            $template->gridClasses .= ' ' . $model->cp_grid_valign;
         }
 
         if ($model->cp_grid_halign) {
-            $template->gridClasses .= ' '.$model->cp_grid_halign;
+            $template->gridClasses .= ' ' . $model->cp_grid_halign;
         }
 
         $template->gridClasses .= $model->cp_gap_mobile ? $this->generateGapClass('mobile', $model->cp_gap_mobile) : '';
         $template->gridClasses .= $model->cp_gap_tablet ? $this->generateGapClass('tablet', $model->cp_gap_tablet) : '';
-        $template->gridClasses .= $model->cp_gap_desktop ? $this->generateGapClass('desktop', $model->cp_gap_desktop) : '';
+        $template->gridClasses .= $model->cp_gap_desktop ? $this->generateGapClass(
+            'desktop',
+            $model->cp_gap_desktop
+        ) : '';
 
         return $template->getResponse();
     }
@@ -150,6 +151,6 @@ class GridStart extends AbstractContentElementController
      */
     private function formatGapOption(string $gap): string
     {
-        return !empty($gap) ? '('.$GLOBALS['TL_LANG']['tl_content']['cp_gap_options'][$gap].')' : '';
+        return !empty($gap) ? '(' . $GLOBALS['TL_LANG']['tl_content']['cp_gap_options'][$gap] . ')' : '';
     }
 }
