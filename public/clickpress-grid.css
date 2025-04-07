@@ -85,10 +85,10 @@
   .grid_mobile_33_66 {
     grid-template-columns: 1fr 2fr;
   }
-  .grid_tablet_60_40 {
+  .grid_mobile_60_40 {
     grid-template-columns: 3fr 2fr;
   }
-  .grid_tablet_40_60 {
+  .grid_mobile_40_60 {
     grid-template-columns: 2fr 3fr;
   }
   .grid_mobile_50_25_25 {
