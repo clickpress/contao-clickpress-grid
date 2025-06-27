@@ -62,7 +62,7 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
 }
 
 [class*="grid_"] {
-  display: grid;
+  display: grid !important;
   grid-gap: 1rem;
 
   > .block {
