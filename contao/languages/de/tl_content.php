@@ -50,6 +50,7 @@ $GLOBALS['TL_LANG']['tl_content']['cp_grid_options'] = [
     'grid_33_33_33' => '3 Spalten',
     'grid_25_25_25_25' => '4 Spalten',
     'grid_20_20_20_20_20' => '5 Spalten',
+    'grid_16_16_16_16_16_16' => '6 Spalten',
     'grid_75_25' => '2 Spalten - aufgeteilt in 75% 25%',
     'grid_25_75' => '2 Spalten - aufgeteilt in 25% 75%',
     'grid_66_33' => '2 Spalten - aufgeteilt in 66% 33%',
