@@ -5,10 +5,25 @@ declare(strict_types=1);
 /**
  * ClickpressGrid DCA Partly taken with friendly permission from RockSolid Columns.
  */
-$GLOBALS['TL_DCA']['tl_content']['palettes']['cp_grid_start'] = '{type_legend},type,headline;{cp_grid_legend},cp_grid_mobile,cp_grid_tablet,cp_grid_desktop,cp_gap_mobile,cp_gap_tablet,cp_gap_desktop,cp_grid_valign,cp_grid_halign;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+
+use Contao\CoreBundle\ContaoCoreBundle;
+use Contao\CoreBundle\DataContainer\PaletteManipulator;
+
+$GLOBALS['TL_DCA']['tl_content']['palettes']['cp_grid_start'] = '{type_legend},headline,type;{cp_grid_legend},cp_grid_mobile,cp_grid_tablet,cp_grid_desktop,cp_gap_mobile,cp_gap_tablet,cp_gap_desktop,cp_grid_valign,cp_grid_halign;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['cp_grid_stop'] = '{type_legend},type;{protected_legend:hide},protected;{expert_legend:hide},guests;{invisible_legend:hide},invisible,start,stop';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['cp_column_start'] = '{type_legend},type,headline;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['cp_column_start'] = '{type_legend},headline,type;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['cp_column_stop'] = '{type_legend},type;{protected_legend:hide},protected;{expert_legend:hide},guests;{invisible_legend:hide},invisible,start,stop';
+
+if( \version_compare(ContaoCoreBundle::getVersion(),'5.6','>=') ) {
+    PaletteManipulator::create()
+        ->addField('title', 'headline', PaletteManipulator::POSITION_BEFORE)
+        ->applyToPalette('cp_grid_start', 'tl_content')
+        ->applyToPalette('cp_grid_stop', 'tl_content')
+        ->applyToPalette('cp_column_start', 'tl_content')
+        ->applyToPalette('cp_column_stop', 'tl_content')
+    ;
+}
+
 $GLOBALS['TL_DCA']['tl_content']['fields']['cp_grid_desktop'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['cp_grid_desktop'],
     'inputType' => 'select',

@@ -19,6 +19,7 @@ use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\CoreBundle\Routing\ScopeMatcher;
+use Contao\StringUtil;
 use Contao\System;
 use Contao\Template;
 use Symfony\Component\HttpFoundation\Request;
@@ -75,7 +76,18 @@ class GridStart extends AbstractContentElementController
     protected function getResponse(Template $template, ContentModel $model, Request $request): Response
     {
         if ($this->scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest())) {
-            return new Response($this->getConfigInfo($model));
+            $listingTitle = '';
+
+            if($model->headline) {
+                $headline = StringUtil::deserialize($model->headline, true);
+                $listingTitle = $headline['value'];
+            }
+
+            if($model->title) {
+                $listingTitle = $model->title;
+            }
+
+            return new Response($listingTitle. "<br>" . $this->getConfigInfo($model));
         }
 
         $template->gridClasses = '';
