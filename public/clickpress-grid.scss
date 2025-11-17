@@ -70,6 +70,10 @@ $mq_extra: 1260px; // Extra large devices (large desktops, 1260px and up)
   }
 }
 
+.ce_cp_column_start:has(.content-swiper) {
+  overflow: hidden;
+}
+
 @media (min-width: $mq_small) {
   .grid_mobile_100 {
     grid-template-columns: 1fr;

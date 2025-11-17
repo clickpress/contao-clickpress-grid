@@ -53,11 +53,15 @@
 }
 
 [class*=grid_] {
-  display: grid;
+  display: grid !important;
   grid-gap: 1rem;
 }
 [class*=grid_] > .block {
   margin-bottom: 0;
+}
+
+.ce_cp_column_start:has(.content-swiper) {
+  overflow: hidden;
 }
 
 @media (min-width: 576px) {
