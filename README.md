@@ -23,6 +23,9 @@ or use the Contao Manager.
 
 If you need multiple content elements within a single column, wrap them with "Column Start" and "Column End" elements.
 
+### Alternative: Grid group
+Instead of start/end elements you can use the "Grid group" element. It works like the Contao core "Element group": the grid settings are configured in the group itself, the content elements are added as child elements (edit the group's children via the list icon). Each child element becomes one grid cell; to place several elements in one cell, add an "Element group" as child.
+
 ## Customized CSS
 To override the default grid styles:
 1. Uncheck "Load Clickpress Grid CSS" in the page layout settings.
@@ -37,6 +40,7 @@ All templates are Twig templates (Contao 6 no longer renders `.html5` templates)
 | Element | Template |
 |---|---|
 | Gridset Start / End | `content_element/cp_grid_start`, `content_element/cp_grid_stop` |
+| Grid group | `content_element/cp_grid_group` |
 | Column Start / End | `content_element/cp_column_start`, `content_element/cp_column_stop` |
 | Form fields | `form_grid_start`, `form_grid_stop`, `form_grid_column_start`, `form_grid_column_stop` |
 

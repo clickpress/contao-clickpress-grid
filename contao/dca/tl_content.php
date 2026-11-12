@@ -13,6 +13,7 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['cp_grid_start'] = '{type_legend},h
 $GLOBALS['TL_DCA']['tl_content']['palettes']['cp_grid_stop'] = '{type_legend},type;{protected_legend:hide},protected;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['cp_column_start'] = '{type_legend},headline,type;{protected_legend:hide},protected;{expert_legend:hide},cssID;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['cp_column_stop'] = '{type_legend},type;{protected_legend:hide},protected;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['cp_grid_group'] = '{type_legend},headline,type;{cp_grid_legend},cp_grid_mobile,cp_grid_tablet,cp_grid_desktop,cp_gap_mobile,cp_gap_tablet,cp_gap_desktop,cp_grid_valign,cp_grid_halign;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},cssID;{invisible_legend:hide},invisible,start,stop';
 
 if( \version_compare(ContaoCoreBundle::getVersion(),'5.6','>=') ) {
     PaletteManipulator::create()
@@ -21,6 +22,7 @@ if( \version_compare(ContaoCoreBundle::getVersion(),'5.6','>=') ) {
         ->applyToPalette('cp_grid_stop', 'tl_content')
         ->applyToPalette('cp_column_start', 'tl_content')
         ->applyToPalette('cp_column_stop', 'tl_content')
+        ->applyToPalette('cp_grid_group', 'tl_content')
     ;
 }
 
