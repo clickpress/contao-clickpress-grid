@@ -13,15 +13,15 @@ declare(strict_types=1);
 
 namespace Clickpress\ContaoClickpressGridBundle\Tests;
 
-use Clickpress\ClickpressGridBundle\ContaoClickpressGridBundle;
+use Clickpress\ContaoClickpressGridBundle\ContaoClickpressGridBundle;
 use PHPUnit\Framework\TestCase;
 
-class ContaoClickpressJsBundleTest extends TestCase
+class ContaoClickpressGridBundleTest extends TestCase
 {
     public function testCanBeInstantiated(): void
     {
         $bundle = new ContaoClickpressGridBundle();
 
-        $this->assertInstanceOf('Clickpress\ContaoClickpressGridBundle\ContaoClickpressGridBundle', $bundle);
+        $this->assertInstanceOf(ContaoClickpressGridBundle::class, $bundle);
     }
 }
