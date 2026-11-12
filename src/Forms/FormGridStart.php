@@ -56,7 +56,7 @@ class FormGridStart extends Widget
             str_replace('grid', 'grid_tablet', $this->form_cp_grid_tablet),
             str_replace('grid', 'grid_mobile', $this->form_cp_grid_mobile),
         ];
-        $arrAttributes['gridClasses'] = implode(' ', $gridClasses);
+        $arrAttributes['gridClasses'] = implode(' ', array_filter($gridClasses));
 
         return parent::parse($arrAttributes);
     }

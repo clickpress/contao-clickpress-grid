@@ -1,0 +1,24 @@
+{% use '@Contao/component/_headline.html.twig' %}
+
+{#
+    Opens a grid set. The matching closing tags are rendered by
+    "content_element/cp_grid_stop".
+#}
+{% set attributes = attrs()
+    .setIfExists('id', element_html_id)
+    .addClass(['ce_cp_grid_start', element_css_classes, 'block'])
+    .mergeWith(attributes|default)
+%}
+{% set grid_attributes = attrs()
+    .addClass([grid_classes|default, 'grid_start', 'block'])
+    .mergeWith(grid_attributes|default)
+%}
+
+<section{{ attributes }}>
+{% block headline %}
+    {% if headline.text %}
+        {{ block('headline_component') }}
+    {% endif %}
+{% endblock %}
+
+<div{{ grid_attributes }}>

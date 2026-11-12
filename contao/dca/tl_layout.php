@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 $GLOBALS['TL_DCA']['tl_layout']['palettes']['default'] .= ';{cp_grid_legend},cp_grid_load_css';
 
+// Modern (Twig) page layouts, available since Contao 5.6
+if (isset($GLOBALS['TL_DCA']['tl_layout']['palettes']['modern'])) {
+    $GLOBALS['TL_DCA']['tl_layout']['palettes']['modern'] .= ';{cp_grid_legend},cp_grid_load_css';
+}
+
 $GLOBALS['TL_DCA']['tl_layout']['fields']['cp_grid_load_css'] = [
     'inputType' => 'checkbox',
     'label' => &$GLOBALS['TL_LANG']['tl_layout']['cp_grid_load_css'],

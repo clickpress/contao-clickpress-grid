@@ -22,6 +22,7 @@ use Contao\DataContainer;
 use Contao\LayoutModel;
 use Contao\PageModel;
 use Contao\PageRegular;
+use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 
 /**
  * ClickpressGridListener Taken with friendly permission from RockSolid Columns.
@@ -30,11 +31,31 @@ use Contao\PageRegular;
  */
 class ClickpressGridListener
 {
+    private const CSS_FILE = 'bundles/contaoclickpressgrid/clickpress-grid.css||static';
+
+    /**
+     * Legacy page layouts (tl_layout.type = default).
+     */
     #[AsHook('generatePage')]
     public function onGeneratePage(PageModel $pageModel, LayoutModel $layout, PageRegular $pageRegular): void
     {
         if ($layout->cp_grid_load_css) {
-            $GLOBALS['TL_CSS'][] = 'bundles/contaoclickpressgrid/clickpress-grid.css||static';
+            $GLOBALS['TL_CSS'][] = self::CSS_FILE;
+        }
+    }
+
+    /**
+     * Modern page layouts (tl_layout.type = modern), Contao 5.6+ and 6.x. The
+     * generatePage hook is not triggered for these, but $GLOBALS['TL_CSS'] is
+     * still rendered into the document head.
+     */
+    #[AsEventListener('Contao\CoreBundle\Event\LayoutEvent')]
+    public function onLayout(object $event): void
+    {
+        $layout = $event->getLayout();
+
+        if ($layout instanceof LayoutModel && $layout->cp_grid_load_css) {
+            $GLOBALS['TL_CSS'][] = self::CSS_FILE;
         }
     }
 

@@ -1,0 +1,18 @@
+{% use '@Contao/component/_headline.html.twig' %}
+
+{#
+    Opens a column inside a grid set. The matching closing tag is rendered by
+    "content_element/cp_column_stop".
+#}
+{% set attributes = attrs()
+    .setIfExists('id', element_html_id)
+    .addClass(['ce_cp_column_start', element_css_classes])
+    .mergeWith(attributes|default)
+%}
+
+<div{{ attributes }}>
+{% block headline %}
+    {% if headline.text %}
+        {{ block('headline_component') }}
+    {% endif %}
+{% endblock %}

@@ -1,8 +1,0 @@
-<section class="<?= $this->class ?> block"<?= $this->cssID ?>>
-<?php $this->block('headline'); ?>
-<?php if ($this->headline): ?>
-    <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
-<?php endif; ?>
-<?php $this->endblock(); ?>
-
-<div class="<?= $this->gridClasses?> grid_start block">
