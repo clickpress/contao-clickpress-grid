@@ -1,0 +1,24 @@
+{% extends '@Contao/content_element/_base.html.twig' %}
+
+{#
+    Grid group: the nested child elements are rendered as grid items. To put
+    several elements into one grid cell, nest an element group (or another
+    grid group) as a child.
+#}
+
+{% block wrapper_tag %}section{% endblock %}
+
+{% block content %}
+    {% set grid_attributes = attrs()
+        .addClass([grid_classes|default, 'grid_start', 'block'])
+        .mergeWith(grid_attributes|default)
+    %}
+
+    <div{{ grid_attributes }}>
+        {% block grid_items %}
+            {% for fragment in nested_fragments %}
+                {{ content_element(fragment) }}
+            {% endfor %}
+        {% endblock %}
+    </div>
+{% endblock %}
