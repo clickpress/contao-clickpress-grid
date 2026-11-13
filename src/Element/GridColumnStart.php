@@ -19,8 +19,8 @@ use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\CoreBundle\Routing\ScopeMatcher;
+use Contao\CoreBundle\Twig\FragmentTemplate;
 use Contao\StringUtil;
-use Contao\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,14 +28,14 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Column start content element Taken with friendly permission from RockSolid Columns.
  */
-#[AsContentElement(type: 'cp_column_start', category: 'cp_grid', template: 'ce_grid_column_start')]
+#[AsContentElement(type: 'cp_column_start', category: 'cp_grid', template: 'content_element/cp_column_start')]
 class GridColumnStart extends AbstractContentElementController
 {
     public function __construct(readonly RequestStack $requestStack, readonly ScopeMatcher $scopeMatcher)
     {
     }
 
-    protected function getResponse(Template $template, ContentModel $model, Request $request): Response
+    protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
         if ($this->scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest())) {
             $listingTitle = '';

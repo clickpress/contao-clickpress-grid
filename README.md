@@ -5,6 +5,10 @@ Add columns to your page content.
 
 Contao Clickpress Grid uses [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) and so less HTML is needed.
 
+## Requirements
+- Contao 5.3+ or Contao 6.x
+- PHP 8.1+ (Contao 6 itself requires PHP 8.4+)
+
 ## Installation
 ```console
 composer require clickpress/contao-clickpress-grid
@@ -24,6 +28,19 @@ To override the default grid styles:
 1. Uncheck "Load Clickpress Grid CSS" in the page layout settings.
 2. Copy and customize the clickpress-grid.scss file (https://github.com/clickpress/contao-clickpress-grid/blob/main/public/clickpress-grid.scss)
 3. Include your custom CSS as an external stylesheet in the layout settings.
+
+The CSS is loaded for classic page layouts as well as for modern (Twig) page layouts.
+
+## Templates
+All templates are Twig templates (Contao 6 no longer renders `.html5` templates):
+
+| Element | Template |
+|---|---|
+| Gridset Start / End | `content_element/cp_grid_start`, `content_element/cp_grid_stop` |
+| Column Start / End | `content_element/cp_column_start`, `content_element/cp_column_stop` |
+| Form fields | `form_grid_start`, `form_grid_stop`, `form_grid_column_start`, `form_grid_column_stop` |
+
+**Upgrading from 2.x:** The former `ce_grid_*.html5` and `form_grid_*.html5` templates were removed. If you customized them, port your changes to the Twig templates above. The generated HTML markup is unchanged.
 
 ## Inside
 This is the result of a 40% 30% 30% setting on desktop. So, three columns will be displayed in a row. The fourth column will be placed in a new row, automatically.

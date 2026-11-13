@@ -1,3 +1,0 @@
-<section class="ce_cp_grid_start <?= $this->class ?> block"<?= $this->cssID ?>>
-
-<div class="<?= $this->gridClasses?> grid_start block">

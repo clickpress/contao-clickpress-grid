@@ -19,9 +19,9 @@ use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\CoreBundle\Routing\ScopeMatcher;
+use Contao\CoreBundle\Twig\FragmentTemplate;
 use Contao\StringUtil;
 use Contao\System;
-use Contao\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,7 +29,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Grid start content element Taken with friendly permission from RockSolid Columns.
  */
-#[AsContentElement(type: 'cp_grid_start', category: 'cp_grid', template: 'ce_grid_start')]
+#[AsContentElement(type: 'cp_grid_start', category: 'cp_grid', template: 'content_element/cp_grid_start')]
 class GridStart extends AbstractContentElementController
 {
     public function __construct(readonly RequestStack $requestStack, readonly ScopeMatcher $scopeMatcher)
@@ -73,7 +73,7 @@ class GridStart extends AbstractContentElementController
         return $gap ? " {$gapArray[0]}_{$deviceType}_{$gapArray[1]} " : '';
     }
 
-    protected function getResponse(Template $template, ContentModel $model, Request $request): Response
+    protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
         if ($this->scopeMatcher->isBackendRequest($this->requestStack->getCurrentRequest())) {
             $listingTitle = '';
@@ -90,8 +90,6 @@ class GridStart extends AbstractContentElementController
             return new Response($listingTitle. "<br>" . $this->getConfigInfo($model));
         }
 
-        $template->gridClasses = '';
-
         $parentKey = ($model->ptable ?: 'tl_article') . '__' . $model->pid;
 
         $GLOBALS['TL_CP_GRID'][$parentKey] = [
@@ -99,22 +97,22 @@ class GridStart extends AbstractContentElementController
             'count' => 0,
             'config' => static::getColumnsConfiguration($model->row()),
         ];
-        $template->gridClasses = implode(' ', $GLOBALS['TL_CP_GRID'][$parentKey]['config']);
+
+        $gridClasses = implode(' ', array_filter($GLOBALS['TL_CP_GRID'][$parentKey]['config']));
 
         if ($model->cp_grid_valign) {
-            $template->gridClasses .= ' ' . $model->cp_grid_valign;
+            $gridClasses .= ' ' . $model->cp_grid_valign;
         }
 
         if ($model->cp_grid_halign) {
-            $template->gridClasses .= ' ' . $model->cp_grid_halign;
+            $gridClasses .= ' ' . $model->cp_grid_halign;
         }
 
-        $template->gridClasses .= $model->cp_gap_mobile ? $this->generateGapClass('mobile', $model->cp_gap_mobile) : '';
-        $template->gridClasses .= $model->cp_gap_tablet ? $this->generateGapClass('tablet', $model->cp_gap_tablet) : '';
-        $template->gridClasses .= $model->cp_gap_desktop ? $this->generateGapClass(
-            'desktop',
-            $model->cp_gap_desktop
-        ) : '';
+        $gridClasses .= $model->cp_gap_mobile ? $this->generateGapClass('mobile', $model->cp_gap_mobile) : '';
+        $gridClasses .= $model->cp_gap_tablet ? $this->generateGapClass('tablet', $model->cp_gap_tablet) : '';
+        $gridClasses .= $model->cp_gap_desktop ? $this->generateGapClass('desktop', $model->cp_gap_desktop) : '';
+
+        $template->set('grid_classes', trim(preg_replace('/\s+/', ' ', $gridClasses)));
 
         return $template->getResponse();
     }
